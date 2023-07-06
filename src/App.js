@@ -1,7 +1,7 @@
 import Card from './components/Card';
 import Focus from './components/Focus';
 import movieData from './data/movieData';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/Card.css';
 
@@ -17,6 +17,8 @@ const App = () => {
   }
 
   const exitFocus = () => setFocus('');
+
+  
 
   const movieCards = movies.map(movie => {
     return (
