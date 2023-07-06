@@ -2,7 +2,7 @@ import '../css/Card.css';
 
 const Card = ({ id, poster_path, title, average_rating }) => {
   return (
-    <div>
+    <div className='card-container'>
       <img 
         src={poster_path}
         className='card-poster-path'
