@@ -1,19 +1,20 @@
 import Card from "./Card";
-import './css/Movies.css';
+import '../css/Movies.css';
 
 const Movies = ({ movies }) => {
   const movieCards = movies.map(movie => {
     return (
       <Card 
-        id = {movies.id}
-        poster_path = {movies.poster_path}
-        title = {movies.title}
-        average_rating = {movies.average_rating}
+        id = {movie.id}
+        poster_path = {movie.poster_path}
+        title = {movie.title}
+        average_rating = {movie.average_rating}
+        key = {movie.id}
       />
     );
   });
   return (
-    <div>
+    <div className='movies-container'>
       {movieCards}
     </div>
   );
