@@ -1,8 +1,11 @@
 import '../css/Card.css';
 
-const Card = ({ id, poster_path, title, average_rating }) => {
+const Card = ({ id, poster_path, title, average_rating, displayFocus }) => {
   return (
-    <div className='card-container'>
+    <div
+      className='card-container'
+      onClick={displayFocus}
+    >
       <img 
         src={poster_path}
         className='card-poster-path'
