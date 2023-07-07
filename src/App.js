@@ -4,6 +4,7 @@ import movieData from './data/movieData';
 import { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/Card.css';
+import Nav from './components/Nav'
 
 
 const App = () => {
@@ -39,7 +40,9 @@ const App = () => {
   });
 
   return (
+    
     <div>
+      <Nav />
       {
         !focus ?
         <div className='movies-container'>
