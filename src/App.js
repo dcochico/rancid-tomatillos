@@ -1,22 +1,29 @@
 import Card from './components/Card';
 import Focus from './components/Focus';
 import movieData from './data/movieData';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/Card.css';
 
+
 const App = () => {
-  const dummyMovies = movieData.movies;
-  const [movies, setMovies] = useState(dummyMovies);
+  // const dummyMovies = movieData.movies;
+  const [movies, setMovies] = useState([]);
   const [focus, setFocus] = useState('');
 
   const displayFocus = id => {
-    setFocus(dummyMovies.find(movie => {
+    setFocus(movies.find(movie => {
       return movie.id === id;
     }));
   }
 
   const exitFocus = () => setFocus('');
+
+  useEffect(() => {
+     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
+            .then(res => res.json())
+            .then(data => setMovies(data.movies))
+  })
 
   const movieCards = movies.map(movie => {
     return (
