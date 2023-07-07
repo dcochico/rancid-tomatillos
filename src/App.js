@@ -31,7 +31,7 @@ const App = () => {
         key = {movie.id}
         id = {movie.id}
         poster_path = {movie.poster_path}
-        title = {movie.title}
+        // title = {movie.title}
         average_rating = {movie.average_rating}
         displayFocus = {() => displayFocus(movie.id)}
       />

@@ -1,5 +1,9 @@
 .card-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  
+  display:grid;
+  margin: .5px 1px .5px 2px
+
 }
 
 .card-container:hover {
