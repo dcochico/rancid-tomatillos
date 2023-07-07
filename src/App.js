@@ -4,6 +4,7 @@ import movieData from './data/movieData';
 import { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/Card.css';
+import Nav from './components/Nav'
 
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
         key = {movie.id}
         id = {movie.id}
         poster_path = {movie.poster_path}
-        title = {movie.title}
+        // title = {movie.title}
         average_rating = {movie.average_rating}
         displayFocus = {() => displayFocus(movie.id)}
       />
@@ -39,7 +40,9 @@ const App = () => {
   });
 
   return (
+    
     <div>
+      <Nav />
       {
         !focus ?
         <div className='movies-container'>
