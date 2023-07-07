@@ -1,9 +1,7 @@
 .card-container {
-  /* border: 2px solid red; */
-  
   display:grid;
-  margin: 10% 0% 0% 10%;
-  /* width:1px */
+  margin: 20% 0% -10% 7%;
+
 }
 
 .card-container:hover {
@@ -18,7 +16,7 @@
 
 .movies-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  padding-right: 40px;
-  padding-left: 10px;
+  grid-template-columns: repeat(6, 1fr);
+  padding-right: 60px;
+  padding-left: 30px;
 }

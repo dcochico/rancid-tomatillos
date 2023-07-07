@@ -10,8 +10,8 @@ const Card = ({ id, poster_path, title, average_rating, displayFocus }) => {
         src={poster_path}
         className='card-poster-path'
       />
-      <h2>{title}</h2>
-      <h3>{average_rating}</h3>
+      {/* <h2>{title}</h2> */}
+      <h2>{average_rating}</h2>
     </div>
   );
 }
