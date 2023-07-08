@@ -1,5 +1,5 @@
 import '../css/Nav.css';
-import '../images/avatar.png';
+
 
 const Nav = () => {
     return (
