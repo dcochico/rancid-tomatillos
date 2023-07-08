@@ -2,7 +2,7 @@ import '../css/Focus.css';
 
 const Focus = ({ id, backdrop_path, title, average_rating, exitFocus }) => {
   return (
-    <section>
+    <section className="focus-section">
       <img 
         className="focus-img"
         src={backdrop_path}
