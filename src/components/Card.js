@@ -1,9 +1,11 @@
 import '../css/Card.css';
 
-const Card = ({ id, poster_path, title, average_rating, displayFocus }) => {
+const Card = ({ id, poster_path, title, average_rating, displayPreview, exitPreview, displayFocus }) => {
   return (
     <div
       className='card-container'
+      onMouseEnter={displayPreview}
+      onMouseLeave={exitPreview}
       onClick={displayFocus}
     >
       <img 
