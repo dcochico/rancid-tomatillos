@@ -1,5 +1,5 @@
 import '../css/Nav.css';
-
+import '../images/avatar.png';
 
 const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdrop_path, preview }) => {
   let styles = {
