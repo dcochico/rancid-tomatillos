@@ -62,6 +62,9 @@ const App = () => {
 
   return (
     <div className='App'>
+      <header>
+        <h1>Rancid Tomatillos</h1>
+      </header>
       {
         !focus && 
         <Nav
