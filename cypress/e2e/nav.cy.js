@@ -14,6 +14,6 @@ describe('template spec', () => {
   })
 
   it('Should display a collection on movies when the application is loaded', () => {
-    
+    cy.get(".movies-container").should("have.length", 1)
   })
 })
