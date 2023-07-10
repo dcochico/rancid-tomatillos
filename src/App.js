@@ -87,6 +87,10 @@ const App = () => {
           backdrop_path = {focus.backdrop_path}
           title = {focus.title}
           average_rating = {focus.average_rating}
+          runtime = {focus.runtime}
+          release_date = {focus.release_date}
+          overview = {focus.overview}
+          genres = {focus.genres}
           exitFocus = {exitFocus}
         />
       }
