@@ -1,16 +1,31 @@
 .nav-bar {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    height: 45%;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 45%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
 }
 
 .site-header {
-    font-size: 30px;
+  font-size: 30px;
+}
+
+.nav-preview {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: 0 20%;
+}
+
+.nav-preview-info {
+  color: white;
+  text-shadow: 2px 2px black;
+  /* backdrop-filter: blur(5px); */
 }

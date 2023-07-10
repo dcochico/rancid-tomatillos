@@ -11,27 +11,36 @@ const App = () => {
   // const dummyMovies = movieData.movies;
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
+  const [videos, setVideos] = useState([]);
   const [focus, setFocus] = useState('');
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
-           .then(res => res.json())
-           .then(data => setMovies(data.movies))
+      .then(res => res.json())
+      .then(data => setMovies(data.movies))
   }, []);
   
+  const getPreview = id => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(res => res.json())
+      .then(data => setPreview(data.movie))
+  }
+
+  const getVideos = id => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+      .then(res => res.json())
+      .then(data => setVideos(data.videos))
+  }
+
   const displayPreview = id => {
-    console.log('hello')
-    setPreview(movies.find(movie => {
-      return movie.id === id;
-    }));
+    getPreview(id);
+    getVideos(id);
   }
 
   const exitPreview = () => setPreview('');
 
-  const displayFocus = id => {
-    setFocus(movies.find(movie => {
-      return movie.id === id;
-    }));
+  const displayFocus = () => {
+    setFocus(preview);
   }
   
   const exitFocus = () => setFocus('');
@@ -46,14 +55,27 @@ const App = () => {
         average_rating = {movie.average_rating}
         displayPreview = {() => displayPreview(movie.id)}
         exitPreview = {exitPreview}
-        displayFocus = {() => displayFocus(movie.id)}
+        displayFocus = {displayFocus}
       />
     );
   });
 
   return (
     <div className='App'>
-      {!focus && <Nav preview={preview}/>}
+      {
+        !focus && 
+        <Nav
+          key = {preview.id}
+          id = {preview.id}
+          title = {preview.title}
+          average_rating = {preview.average_rating}
+          release_date = {preview.release_date}
+          tagline = {preview.tagline}
+          genres = {preview.genres}
+          backdrop_path = {preview.backdrop_path}
+          preview = {preview}
+        />
+      }
       {
         !focus ?
         <div className='movies-container'>
