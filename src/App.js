@@ -54,7 +54,7 @@ const App = () => {
         // title = {movie.title}
         average_rating = {movie.average_rating}
         displayPreview = {() => displayPreview(movie.id)}
-        exitPreview = {exitPreview}
+        // exitPreview = {exitPreview}
         displayFocus = {displayFocus}
       />
     );
