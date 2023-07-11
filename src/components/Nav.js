@@ -9,7 +9,7 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
     <nav className='nav-bar'>
       {
         !preview ? 
-        <div>
+        <div className="header-div">
           <h1 className='site-header'>Rancid Tomatillos</h1>
           <img src='../images/avatar.png' />
         </div> :
