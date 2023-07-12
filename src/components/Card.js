@@ -1,19 +1,21 @@
 import '../css/Card.css';
+import { NavLink } from 'react-router-dom'
 
 const Card = ({ id, poster_path, title, average_rating, displayPreview, exitPreview, displayFocus }) => {
   return (
     <div
-      className='card-container'
+      // className='card-container'
       onMouseEnter={displayPreview}
       onMouseLeave={exitPreview}
       onClick={displayFocus}
     >
-      <img 
-        src={poster_path}
-        className='card-poster-path'
-      />
-      {/* <h2>{title}</h2> */}
-      <h2 className="rating-number">{average_rating}/10</h2>
+      <NavLink to={`/${id}`} className="card-container">
+        <img 
+          src={poster_path}
+          className='card-poster-path'
+        />
+        <h2 className="rating-number">{average_rating}/10</h2>
+      </NavLink>
     </div>
   );
 }

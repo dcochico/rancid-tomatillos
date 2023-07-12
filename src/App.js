@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/Card.css';
 import Nav from './components/Nav'
+import { Routes, Route } from 'react-router-dom';
 
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
   const [preview, setPreview] = useState('');
   const [videos, setVideos] = useState([]);
   const [focus, setFocus] = useState('');
+
+  console.log('focus',focus)
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
@@ -63,9 +66,9 @@ const App = () => {
 
   return (
     <div className='App'>
-      <header>
+      {/* <header>
         <h1>Rancid Tomatillos</h1>
-      </header>
+      </header> */}
       {
         !focus && 
         <Nav
@@ -80,12 +83,9 @@ const App = () => {
           preview = {preview}
         />
       }
-      {
-        !focus ?
-        <div className='movies-container'>
-          {movieCards}
-        </div> : 
-        <Focus
+      <Routes>
+        <Route path="/" element={<div className='movies-container'>{movieCards}</div>} />
+        <Route path="/:id" element={<Focus
           key = {focus.id}
           id = {focus.id}
           backdrop_path = {focus.backdrop_path}
@@ -96,8 +96,8 @@ const App = () => {
           overview = {focus.overview}
           genres = {focus.genres}
           exitFocus = {exitFocus}
-        />
-      }
+        />} />
+      </Routes>
     </div>
   );
 }

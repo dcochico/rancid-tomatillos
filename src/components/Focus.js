@@ -1,9 +1,12 @@
 import '../css/Focus.css';
+import { useParams, Link, Outlet } from 'react-router-dom';
 
 const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date, overview, genres, exitFocus }) => {
   let styles = {
     backgroundImage: `url(${backdrop_path})`
   }
+  console.log('useparams',useParams())
+  // let movieID = useParams().id;
   return (
     // <section>
     //   <img 
@@ -18,7 +21,9 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       className='focus-container'
       style={styles}
     >
-      <button onClick={exitFocus}>Close</button>
+      <Link to={`/`} >
+        <button onClick={exitFocus}>Close</button>
+      </Link>
       <h1>{title}</h1>
       <div>
         <p>{average_rating}</p>

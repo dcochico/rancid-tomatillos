@@ -1,5 +1,6 @@
 import '../css/Nav.css';
 import '../images/avatar.png';
+import { useParams, Link, Outlet } from 'react-router-dom';
 
 const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdrop_path, preview }) => {
   let styles = {
