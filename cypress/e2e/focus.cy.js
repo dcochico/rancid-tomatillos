@@ -18,7 +18,6 @@ describe('selected movie view', () => {
       fixture:"stubVideoData"
     })
       .get(".card-poster-path").click().url().should("include", "http://localhost:3000/436270")
-      // .get(".nav-preview").contains("h1","Black Adam")
   });
 
   it("Should display movie details when user clicks on movie", () => {
@@ -32,8 +31,23 @@ describe('selected movie view', () => {
     })
       .get(".card-poster-path").click()
       .get(".nav-preview").contains("h1","Black Adam")
+  });
+
+  it("Should display preview details when user clicks on more info button", () => {
+    cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270", {
+      statusCode: 200,
+      fixture:"stubMovieData"
+    })
+    cy.intercept('GET', "https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270/videos", {
+      statusCode: 200,
+      fixture:"stubVideoData"
+    })
+      .get(".card-poster-path").click()
+      .get(".nav-preview").contains("h1","Black Adam")
       .get(".more-info-button").click()
       .get(".focus-container").contains("h1","Black Adam")
   });
+
+
 
 })
