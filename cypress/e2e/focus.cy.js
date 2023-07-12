@@ -17,8 +17,8 @@ describe('selected movie view', () => {
       statusCode: 200,
       fixture:"stubVideoData"
     })
-      .get(".card-poster-path").click()
-      .get(".nav-preview").contains("h1","Black Adam")
+      .get(".card-poster-path").click().url().should("include", "http://localhost:3000/436270")
+      // .get(".nav-preview").contains("h1","Black Adam")
   });
 
   it("Should display movie details when user clicks on movie", () => {
@@ -32,7 +32,7 @@ describe('selected movie view', () => {
     })
       .get(".card-poster-path").click()
       .get(".nav-preview").contains("h1","Black Adam")
-    cy.get(".card-poster-path").click()
+      .get(".more-info-button").click()
       .get(".focus-container").contains("h1","Black Adam")
   });
 

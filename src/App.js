@@ -1,6 +1,5 @@
 import Card from './components/Card';
 import Focus from './components/Focus';
-// import movieData from './data/movieData';
 import { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/Card.css';
@@ -9,7 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 
 
 const App = () => {
-  // const dummyMovies = movieData.movies;
+  
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
   const [videos, setVideos] = useState([]);
