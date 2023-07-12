@@ -1,7 +1,7 @@
 import '../css/Card.css';
 import { NavLink } from 'react-router-dom'
 
-const Card = ({ id, poster_path, title, average_rating, displayPreview, exitPreview, displayFocus }) => {
+const Card = ({ id, poster_path, average_rating, displayPreview, exitPreview, displayFocus }) => {
   return (
     <div
       // className='card-container'
