@@ -22,7 +22,7 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       style={styles}
     >
       <Link to={`/`} >
-        <button onClick={exitFocus}>Close</button>
+        <button className="focus-button"onClick={exitFocus}>Close</button>
       </Link>
       <h1 className="focus-title"> {title}</h1>
       <div className='focus-description'>

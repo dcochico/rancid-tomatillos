@@ -10,6 +10,10 @@
   width: 100vw;
 }
 
-.focus-title {
+.focus-title, .focus-description, .focus-button {
   margin-left: 15px;
+}
+
+.focus-button {
+  margin-top: 15px;
 }
