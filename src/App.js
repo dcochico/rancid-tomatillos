@@ -55,10 +55,8 @@ const App = () => {
         key = {movie.id}
         id = {movie.id}
         poster_path = {movie.poster_path}
-        // title = {movie.title}
         average_rating = {movie.average_rating}
         displayPreview = {() => displayPreview(movie.id)}
-        // exitPreview = {exitPreview}
         displayFocus = {displayFocus}
       />
     );
@@ -66,9 +64,6 @@ const App = () => {
 
   return (
     <div className='App'>
-      {/* <header>
-        <h1>Rancid Tomatillos</h1>
-      </header> */}
       {
         !focus && 
         <Nav
@@ -81,6 +76,7 @@ const App = () => {
           genres = {preview.genres}
           backdrop_path = {preview.backdrop_path}
           preview = {preview}
+          displayFocus={displayFocus}
         />
       }
       <Routes>

@@ -3,9 +3,49 @@
 } */
 
 .focus-container {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   background-size: cover;
   color: white;
   height: 100vh;
   width: 100vw;
+}
+
+.focus-title, .focus-description, .focus-movie-overview {
+  margin-left: 45px;
+  text-shadow: 2px 2px black;
+}
+
+
+.focus-button {
+  /* margin-top: 20%; */
+  margin-left: 45px;
+  height:30px;
+  width:70px;
+  border: none;
+  border-radius: 3px;
+  background-color: white;
+  color:black;
+}
+
+.focus-title {
+  margin-top: 23%;
+  font-size: 4vw;
+  margin-bottom: -5px;
+  text-shadow: 2px 2px black;
+}
+
+.focus-movie-overview {
+  width: 50%;
+  text-shadow: 2px 2px black;
+}
+
+.focus-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:12%;
+}
+
+.movie-summary {
+  font-size: 2.7vh;
 }

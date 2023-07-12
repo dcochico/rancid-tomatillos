@@ -1,8 +1,8 @@
 import '../css/Nav.css';
 import '../images/avatar.png';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, NavLink } from 'react-router-dom';
 
-const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdrop_path, preview }) => {
+const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdrop_path, preview, displayFocus }) => {
   let styles = {
     backgroundImage: `url(${backdrop_path})`
   }
@@ -12,7 +12,6 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
         !preview ? 
         <div className="header-div">
           <h1 className='site-header'>Rancid Tomatillos</h1>
-          <img src='../images/avatar.png' />
         </div> :
         <div
           className='nav-preview'
@@ -21,15 +20,19 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
           <div
             className='nav-preview-info'
           >
-            <h1>{title}</h1>
+            <h1 className='preview-title'>{title}</h1>
             <div>
-              <p>{average_rating}</p>
+              <p>{average_rating}/10</p>
               <p>{release_date}</p>
             </div>
-            <h2>{tagline}</h2>
+            <h2 className='preview-tagline'>{tagline}</h2>
             <h3>{genres[0]}</h3>
+            <NavLink to={`/${id}`} >
+              <button className="more-info-button" onClick={displayFocus}>More Info</button>
+            </NavLink>
           </div>
         </div>
+        
       }
     </nav>
   );

@@ -21,17 +21,19 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       className='focus-container'
       style={styles}
     >
-      <Link to={`/`} >
-        <button onClick={exitFocus}>Close</button>
-      </Link>
-      <h1>{title}</h1>
-      <div>
-        <p>{average_rating}</p>
+      <h1 className="focus-title"> {title}</h1>
+      <div className='focus-description'>
+        <p>{average_rating}/10</p>
         <p>{runtime} minutes</p>
         <p>{release_date}</p>
       </div>
-      <p>{overview}</p>
-      <p>{genres[0]}</p>
+      <div className='focus-movie-overview'>
+        <p className ="movie-summary">{overview}</p>
+        <p>{genres[0]}</p>
+      </div>
+      <Link to={`/`} >
+        <button className="focus-button"onClick={exitFocus}>Back</button>
+      </Link>
     </section>
   )
 }
