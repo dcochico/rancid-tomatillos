@@ -21,9 +21,7 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       className='focus-container'
       style={styles}
     >
-      <Link to={`/`} >
-        <button className="focus-button"onClick={exitFocus}>Back</button>
-      </Link>
+
       <h1 className="focus-title"> {title}</h1>
       <div className='focus-description'>
         <p>{average_rating}/10</p>
@@ -34,6 +32,9 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
         <p>{overview}</p>
         <p>{genres[0]}</p>
       </div>
+      <Link to={`/`} >
+        <button className="focus-button"onClick={exitFocus}>Back</button>
+      </Link>
     </section>
   )
 }
