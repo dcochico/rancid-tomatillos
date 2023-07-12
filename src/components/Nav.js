@@ -21,12 +21,12 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
           <div
             className='nav-preview-info'
           >
-            <h1>{title}</h1>
+            <h1 className='preview-title'>{title}</h1>
             <div>
               <p>{average_rating}/10</p>
               <p>{release_date}</p>
             </div>
-            <h2>{tagline}</h2>
+            <h2 className='preview-tagline'>{tagline}</h2>
             <h3>{genres[0]}</h3>
           </div>
         </div>
