@@ -21,7 +21,7 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       </div>
       <div className='focus-movie-overview'>
         <p className ="movie-summary">{overview}</p>
-        <p>{genres}</p>
+        <p className="focus-genres">{genres}</p>
       </div>
       <Link to={`/`} >
         <button className="focus-button"onClick={exitFocus}>Back</button>
