@@ -24,8 +24,8 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       <Link to={`/`} >
         <button onClick={exitFocus}>Close</button>
       </Link>
-      <h1>{title}</h1>
-      <div>
+      <h1 className="focus-title"> {title}</h1>
+      <div className='focus-description'>
         <p>{average_rating}</p>
         <p>{runtime} minutes</p>
         <p>{release_date}</p>
