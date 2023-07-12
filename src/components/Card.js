@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 const Card = ({ id, poster_path, average_rating, displayPreview, exitPreview, displayFocus }) => {
   return (
     <div
-      // className='card-container'
+      className="card-container"
       onMouseEnter={displayPreview}
       onMouseLeave={exitPreview}
       onClick={displayFocus}

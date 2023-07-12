@@ -6,17 +6,9 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
     backgroundImage: `url(${backdrop_path})`
   }
   console.log('useparams',useParams())
-  // let movieID = useParams().id;
+
   return (
-    // <section>
-    //   <img 
-    //     className="focus-img"
-    //     src={backdrop_path}
-    //   />
-    //   <h2>{title}</h2>
-    //   <h3>{average_rating}</h3>
-    //   <button onClick={exitFocus}>Close</button>
-    // </section>
+
     <section
       className='focus-container'
       style={styles}
@@ -29,7 +21,7 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       </div>
       <div className='focus-movie-overview'>
         <p className ="movie-summary">{overview}</p>
-        <p>{genres[0]}</p>
+        <p className="focus-genres">{genres}</p>
       </div>
       <Link to={`/`} >
         <button className="focus-button"onClick={exitFocus}>Back</button>

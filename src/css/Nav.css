@@ -42,6 +42,10 @@
   color:black;
 }
 
+.more-info-button:hover {
+  cursor: pointer;
+}
+
 .preview-title {
   font-size: 5vh;
 }
