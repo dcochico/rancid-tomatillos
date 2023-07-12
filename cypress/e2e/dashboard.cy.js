@@ -10,7 +10,7 @@ describe('dashboard view', () => {
 
   it('Should display the title of the application on load', () => {
     
-    cy.get('header').contains('h1','Rancid Tomatillos')
+    cy.get('div').contains('h1','Rancid Tomatillos')
   });
 
   it('Should display a collection on movies when the application is loaded', () => {
