@@ -23,7 +23,7 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
           >
             <h1>{title}</h1>
             <div>
-              <p>{average_rating}</p>
+              <p>{average_rating}/10</p>
               <p>{release_date}</p>
             </div>
             <h2>{tagline}</h2>

@@ -11,16 +11,20 @@
 }
 
 .focus-title, .focus-description, .focus-movie-overview {
-  margin-left: 15px;
+  margin-left: 25px;
   text-shadow: 2px 2px black;
 }
 
 
 .focus-button {
   margin-top: 20%;
-  margin-left: 15px;
-  height:20px;
-  width:30px;
+  margin-left: 25px;
+  height:30px;
+  width:70px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(39, 38, 38);
+  color:white
 }
 
 .focus-title {

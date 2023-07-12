@@ -26,7 +26,7 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       </Link>
       <h1 className="focus-title"> {title}</h1>
       <div className='focus-description'>
-        <p>{average_rating}</p>
+        <p>{average_rating}/10</p>
         <p>{runtime} minutes</p>
         <p>{release_date}</p>
       </div>
