@@ -27,8 +27,8 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
             </div>
             <h2 className='preview-tagline'>{tagline}</h2>
             <h3>{genres[0]}</h3>
-            <NavLink to={`/${id}`}>
-              <button onClick={displayFocus}>More Info</button>
+            <NavLink to={`/${id}`} >
+              <button className="more-info-button" onClick={displayFocus}>More Info</button>
             </NavLink>
           </div>
         </div>
