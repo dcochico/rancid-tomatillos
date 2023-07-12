@@ -21,7 +21,6 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
       className='focus-container'
       style={styles}
     >
-
       <h1 className="focus-title"> {title}</h1>
       <div className='focus-description'>
         <p>{average_rating}/10</p>
@@ -29,7 +28,7 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
         <p>{release_date}</p>
       </div>
       <div className='focus-movie-overview'>
-        <p>{overview}</p>
+        <p className ="movie-summary">{overview}</p>
         <p>{genres[0]}</p>
       </div>
       <Link to={`/`} >
