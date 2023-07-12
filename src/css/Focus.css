@@ -42,13 +42,6 @@
   width:20%;
 }
 
-.focus-genres {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width:30%;
-}
-
 .movie-summary {
   font-size: 2.7vh;
 }
