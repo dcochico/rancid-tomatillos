@@ -10,14 +10,26 @@
   width: 100vw;
 }
 
-.focus-title, .focus-description, .focus-button, .focus-movie-overview {
+.focus-title, .focus-description, .focus-movie-overview {
   margin-left: 15px;
+  text-shadow: 2px 2px black;
 }
 
+
 .focus-button {
-  margin-top: 15px;
+  margin-top: 20%;
+  margin-left: 15px;
+  height:20px;
+  width:30px;
+}
+
+.focus-title {
+  font-size: 4vw;
+  margin-bottom: -5px;
+  text-shadow: 2px 2px black;
 }
 
 .focus-movie-overview {
   width: 50%;
+  text-shadow: 2px 2px black;
 }
