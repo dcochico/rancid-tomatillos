@@ -1,33 +1,47 @@
 import '../css/Focus.css';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date, overview, genres, exitFocus }) => {
+const Focus = ({ focus, setFocus, reset }) => {
+  let id = useParams().id;
+
+  useEffect(() => {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+      .then(res => res.json())
+      .then(data => setFocus(data.movie))
+  }, []);
+
   let styles = {
-    backgroundImage: `url(${backdrop_path})`
+    backgroundImage: `url(${focus.backdrop_path})`
   }
-  console.log('useparams',useParams())
 
   return (
-
     <section
       className='focus-container'
       style={styles}
     >
-      <h1 className="focus-title"> {title}</h1>
+      <h1 className="focus-title"> {focus.title}</h1>
       <div className='focus-description'>
-        <p>{average_rating}/10</p>
-        <p>{runtime} minutes</p>
-        <p>{release_date}</p>
+        <p>{focus.average_rating}/10</p>
+        <p>{focus.runtime} minutes</p>
+        <p>{focus.release_date}</p>
       </div>
       <div className='focus-movie-overview'>
-        <p className ="movie-summary">{overview}</p>
-        <p className="focus-genres">{genres}</p>
+        <p className ="movie-summary">{focus.overview}</p>
+        <p className="focus-genres">{focus.genres}</p>
       </div>
       <Link to={`/`} >
-        <button className="focus-button"onClick={exitFocus}>Back</button>
+        <button className="focus-button" onClick={reset}>Back</button>
       </Link>
     </section>
   )
 }
 
 export default Focus;
+
+Focus.propTypes = {
+  focus: PropTypes.any.isRequired,
+  setFocus: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired
+}

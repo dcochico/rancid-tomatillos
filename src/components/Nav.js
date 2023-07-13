@@ -1,6 +1,7 @@
 import '../css/Nav.css';
 import '../images/avatar.png';
-import { useParams, Link, Outlet, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdrop_path, preview, displayFocus }) => {
   let styles = {
@@ -26,7 +27,7 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
               <p>{release_date}</p>
             </div>
             <h2 className='preview-tagline'>{tagline}</h2>
-            <h3>{genres[0]}</h3>
+            <h3>{genres}</h3>
             <NavLink to={`/${id}`} >
               <button className="more-info-button" onClick={displayFocus}>More Info</button>
             </NavLink>
@@ -39,3 +40,15 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
 }
 
 export default Nav;
+
+Nav.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  average_rating: PropTypes.number,
+  release_date: PropTypes.string,
+  tagline: PropTypes.string,
+  genres: PropTypes.array,
+  backdrop_path: PropTypes.string,
+  preview: PropTypes.any,
+  displayFocus: PropTypes.func
+}
