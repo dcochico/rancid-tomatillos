@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Focus = ({ focus, setFocus }) => {
+const Focus = ({ focus, setFocus, reset }) => {
   let id = useParams().id;
 
   useEffect(() => {
@@ -17,7 +17,6 @@ const Focus = ({ focus, setFocus }) => {
   }
 
   return (
-
     <section
       className='focus-container'
       style={styles}
@@ -33,7 +32,7 @@ const Focus = ({ focus, setFocus }) => {
         <p className="focus-genres">{focus.genres}</p>
       </div>
       <Link to={`/`} >
-        <button className="focus-button">Back</button>
+        <button className="focus-button" onClick={reset}>Back</button>
       </Link>
     </section>
   )
@@ -43,5 +42,6 @@ export default Focus;
 
 Focus.propTypes = {
   focus: PropTypes.any.isRequired,
-  setFocus: PropTypes.func.isRequired
+  setFocus: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired
 }

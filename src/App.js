@@ -1,20 +1,16 @@
 import Card from './components/Card';
 import Focus from './components/Focus';
+import Nav from './components/Nav'
 import { useState, useEffect } from 'react';
 import './css/App.css';
 import './css/Card.css';
-import Nav from './components/Nav'
 import { Routes, Route } from 'react-router-dom';
 
-
 const App = () => {
-  
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
   const [videos, setVideos] = useState([]);
   const [focus, setFocus] = useState('');
-
-  console.log('focus',focus)
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies`)
@@ -38,14 +34,15 @@ const App = () => {
     getPreview(id);
     getVideos(id);
   }
-
-  // const exitPreview = () => setPreview('');
-
+  
   const displayFocus = () => {
     setFocus(preview);
   }
   
-  // const exitFocus = () => setFocus('');
+  const reset = () => {
+    setPreview('');
+    setFocus('');
+  }
 
   const movieCards = movies.map(movie => {
     return (
@@ -84,6 +81,7 @@ const App = () => {
         {<Focus
           focus = {focus}
           setFocus = {setFocus}
+          reset = {reset}
           key = {focus.id}
         />}
       />
