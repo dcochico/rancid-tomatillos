@@ -39,7 +39,7 @@ const App = () => {
     getVideos(id);
   }
 
-  const exitPreview = () => setPreview('');
+  // const exitPreview = () => setPreview('');
 
   const displayFocus = () => {
     setFocus(preview);

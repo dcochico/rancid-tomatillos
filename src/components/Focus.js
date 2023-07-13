@@ -1,11 +1,11 @@
 import '../css/Focus.css';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date, overview, genres, exitFocus }) => {
   let styles = {
     backgroundImage: `url(${backdrop_path})`
   }
-  console.log('useparams',useParams())
 
   return (
 
@@ -31,3 +31,15 @@ const Focus = ({ id, backdrop_path, title, average_rating, runtime, release_date
 }
 
 export default Focus;
+
+Focus.propTypes = {
+  id: PropTypes.number,
+  backdrop_path: PropTypes.string,
+  title: PropTypes.string,
+  average_rating: PropTypes.number,
+  runtime: PropTypes.number,
+  release_date: PropTypes.string,
+  overview: PropTypes.string,
+  genres: PropTypes.array,
+  exitFocus: PropTypes.func
+}

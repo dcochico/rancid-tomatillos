@@ -1,12 +1,13 @@
 import '../css/Card.css';
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-const Card = ({ id, poster_path, average_rating, displayPreview, exitPreview, displayFocus }) => {
+const Card = ({ id, poster_path, average_rating, displayPreview, displayFocus }) => {
   return (
     <div
       className="card-container"
+      role='button'
       onMouseEnter={displayPreview}
-      onMouseLeave={exitPreview}
       onClick={displayFocus}
     >
       <NavLink to={`/${id}`} className="card-container">
@@ -21,3 +22,11 @@ const Card = ({ id, poster_path, average_rating, displayPreview, exitPreview, di
 }
 
 export default Card;
+
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  average_rating: PropTypes.number.isRequired,
+  displayPreview: PropTypes.func.isRequired,
+  displayFocus: PropTypes.func.isRequired
+}
