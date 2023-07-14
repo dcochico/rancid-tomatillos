@@ -7,19 +7,21 @@ const Card = ({ id, poster_path, average_rating, getSingleMovie, getVideos, setF
     <div
       className="card-container"
       role='button'
-      onMouseEnter={getSingleMovie}
-      onClick={() => {
-        setFocus();
-        getVideos();
-      }}
     >
       <NavLink to={`/movie/${id}`} className="card-container">
+
         <img 
           src={poster_path}
-          className='card-poster-path'
+          className='card-poster-path' 
+          onMouseEnter={getSingleMovie}
+          onClick={() => {
+            setFocus();
+            getVideos();
+          }}
         />
-        <h2 className="rating-number">{average_rating}/10</h2>
       </NavLink>
+        <h2 className="rating-number">{average_rating}/10</h2>
+     
     </div>
   );
 }

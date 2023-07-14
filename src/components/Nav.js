@@ -7,25 +7,31 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
   let styles = {
     backgroundImage: `url(${backdrop_path})`
   }
+  
   return (
-    <nav className='nav-bar'>
+    <div className="nav-section">
+  
       {
         !preview ? 
-        <div className="header-div">
-          <h1 className='site-header'>Rancid Tomatillos</h1>
-        </div> :
-        <div
-          className='nav-preview'
-          style={styles}
-        >
+        <nav className='nav-bar'>
+          <div className="header-div">
+            <h1 className='site-header'>Rancid Tomatillos</h1>
+          </div> 
+        </nav>:
+
+        <nav className='nav-bar-preview'>
           <div
-            className='nav-preview-info'
+            className='nav-preview'
+            style={styles}
           >
-            <h1 className='preview-title'>{title}</h1>
-            <div>
-              <p>{average_rating}/10</p>
-              <p>{release_date}</p>
-            </div>
+            <div
+              className='nav-preview-info'
+            >
+              <h1 className='preview-title'>{title}</h1>
+              <div>
+                <p>{average_rating}/10</p>
+                <p>{release_date}</p>
+              </div>
             <h2 className='preview-tagline'>{tagline}</h2>
             <h3>{genres}</h3>
             <NavLink to={`/movie/${id}`} >
@@ -35,10 +41,10 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
               }}>More Info</button>
             </NavLink>
           </div>
-        </div>
-        
+        </nav>
       }
-    </nav>
+   
+    </div>
   );
 }
 
