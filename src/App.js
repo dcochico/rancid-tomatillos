@@ -36,9 +36,6 @@ const App = () => {
       })
   }
 
-  console.log('loading', loading);
-  console.log('error', error)
-
   useEffect(() => {
     getData(getAllMovies, null, setMovies, 'movies');
     setError(null);
