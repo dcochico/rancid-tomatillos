@@ -15,6 +15,7 @@ const App = () => {
 
   const getData = (request, id, setter, key) => {
     request(id)
+      .then(res => res.json())
       .then(data => setter(data[key]))
   }
 

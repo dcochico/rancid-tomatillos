@@ -1,16 +1,7 @@
-const getAllMovies = () => {
-  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(res => res.json())
-}
+const getAllMovies = () => fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
 
-const getSingleMovie = id => {
-  return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-    .then(res => res.json())
-}
+const getSingleMovie = id => fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
 
-const getVideos = id => {
-  return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
-    .then(res => res.json())
-}
+const getVideos = id => fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
 
 export { getAllMovies, getSingleMovie, getVideos }
