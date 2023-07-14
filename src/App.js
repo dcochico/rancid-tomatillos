@@ -8,16 +8,21 @@ import './css/App.css';
 import './css/Card.css';
 
 const App = () => {
+  const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
   const [focus, setFocus] = useState('');
   const [videos, setVideos] = useState([]);
 
   const getData = (request, id, setter, key) => {
+    setLoading(true);
     request(id)
       .then(res => res.json())
       .then(data => setter(data[key]))
+      .then(() => setLoading(false))
   }
+
+  console.log('loading', loading);
 
   useEffect(() => {
     getData(getAllMovies, null, setMovies, 'movies')
@@ -61,6 +66,7 @@ const App = () => {
             getVideos = {() => getData(getVideos, preview.id, setVideos, 'videos')}
             setFocus = {() => setFocus(preview)}
           />
+          {loading && <h1 className="loading">Loading...</h1>}
           <div className='movies-container'>{movieCards}</div>
         </div>}
       />
