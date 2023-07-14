@@ -1,6 +1,7 @@
 import Card from './components/Card';
 import Focus from './components/Focus';
-import Nav from './components/Nav'
+import Nav from './components/Nav';
+import PageNotFound from './components/PageNotFound';
 import { getAllMovies, getSingleMovie, getVideos } from './ApiCalls';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -78,6 +79,7 @@ const App = () => {
           key = {focus.id}
         />}
       />
+      <Route path='*' element={<PageNotFound/>}/>
     </Routes>
   );
 }
