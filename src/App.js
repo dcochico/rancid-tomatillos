@@ -9,6 +9,7 @@ import './css/App.css';
 import './css/Card.css';
 
 const App = () => {
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
@@ -18,15 +19,29 @@ const App = () => {
   const getData = (request, id, setter, key) => {
     setLoading(true);
     request(id)
-      .then(res => res.json())
-      .then(data => setter(data[key]))
-      .then(() => setLoading(false))
+      .then(res => {
+        if(!res.ok) {
+          throw Error('Unable to fetch data at this time. Please try again later.');
+        }
+        return res.json();
+      })
+      .then(data => {
+        setter(data[key]);
+        setLoading(false);
+        setError(null);
+      })
+      .catch(err => {
+        setLoading(false);
+        setError(err.message)
+      })
   }
 
   console.log('loading', loading);
+  console.log('error', error)
 
   useEffect(() => {
-    getData(getAllMovies, null, setMovies, 'movies')
+    getData(getAllMovies, null, setMovies, 'movies');
+    setError(null);
   }, []);
   
   const reset = () => {
@@ -54,6 +69,7 @@ const App = () => {
     <Routes>
       <Route path="/" element=
         {<div className='App'>
+          {error && <h1 className='error-message'>{error}</h1>}
           <Nav
             key = {preview.id}
             id = {preview.id}

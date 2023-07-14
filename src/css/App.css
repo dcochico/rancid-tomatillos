@@ -20,3 +20,11 @@ body, html {
   bottom: 0;
   right: 0;
 }
+
+.error-message {
+  color: red;
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 30%;
+}

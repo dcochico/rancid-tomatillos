@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 const Focus = ({ focus, setFocus, reset }) => {
   let id = useParams().id;
 
-  useEffect(() => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(res => res.json())
-      .then(data => setFocus(data.movie))
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+  //     .then(res => res.json())
+  //     .then(data => setFocus(data.movie))
+  // }, []);
 
   let styles = {
     backgroundImage: `url(${focus.backdrop_path})`
