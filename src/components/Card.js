@@ -2,13 +2,16 @@ import '../css/Card.css';
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
-const Card = ({ id, poster_path, average_rating, displayPreview, displayFocus }) => {
+const Card = ({ id, poster_path, average_rating, getSingleMovie, getVideos, setFocus }) => {
   return (
     <div
       className="card-container"
       role='button'
-      onMouseEnter={displayPreview}
-      onClick={displayFocus}
+      onMouseEnter={getSingleMovie}
+      onClick={() => {
+        setFocus();
+        getVideos();
+      }}
     >
       <NavLink to={`/${id}`} className="card-container">
         <img 
@@ -27,6 +30,7 @@ Card.propTypes = {
   id: PropTypes.number.isRequired,
   poster_path: PropTypes.string.isRequired,
   average_rating: PropTypes.number.isRequired,
-  displayPreview: PropTypes.func.isRequired,
-  displayFocus: PropTypes.func.isRequired
+  getSingleMovie: PropTypes.func.isRequired,
+  getVideos: PropTypes.func.isRequired,
+  setFocus: PropTypes.func.isRequired
 }
