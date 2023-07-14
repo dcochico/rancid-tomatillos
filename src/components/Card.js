@@ -15,8 +15,9 @@ const Card = ({ id, poster_path, average_rating, displayPreview, displayFocus })
           src={poster_path}
           className='card-poster-path'
         />
-        <h2 className="rating-number">{average_rating}/10</h2>
       </NavLink>
+        <h2 className="rating-number">{average_rating}/10</h2>
+     
     </div>
   );
 }

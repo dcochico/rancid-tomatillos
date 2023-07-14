@@ -4,15 +4,32 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  height: 45%;
+  height: 15%;
+  padding-bottom:40px ;
   width: 100%;
   position: fixed;
   z-index: 1;
   box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
 }
 
+.nav-bar-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 45%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  padding-bottom: 50px;
+}
+
+
+
 .site-header {
-  font-size: 50px;
+  font-size: 40px;
+  padding-top: 15%;
+  
 }
 
 .nav-preview {
@@ -24,6 +41,7 @@
   background-position: 0 20%;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  
 }
 
 .nav-preview-info {
@@ -49,3 +67,4 @@
 .preview-title {
   font-size: 5vh;
 }
+
