@@ -7,13 +7,13 @@ const Card = ({ id, poster_path, average_rating, displayPreview, displayFocus })
     <div
       className="card-container"
       role='button'
-      onMouseEnter={displayPreview}
-      onClick={displayFocus}
     >
-      <NavLink to={`/${id}`} className="card-container">
+      <NavLink to={`/${id}`} className="card-container" >
         <img 
           src={poster_path}
-          className='card-poster-path'
+          className='card-poster-path' 
+          onMouseEnter={displayPreview}
+          onClick={displayFocus}
         />
       </NavLink>
         <h2 className="rating-number">{average_rating}/10</h2>
