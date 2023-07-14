@@ -87,7 +87,7 @@ const App = () => {
           <div className='movies-container'>{movieCards}</div>
         </div>}
       />
-      <Route path="/:id" element=
+      <Route path="/movie/:id" element=
         {<Focus
           focus = {focus}
           setFocus = {setFocus}

@@ -28,7 +28,7 @@ const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdro
             </div>
             <h2 className='preview-tagline'>{tagline}</h2>
             <h3>{genres}</h3>
-            <NavLink to={`/${id}`} >
+            <NavLink to={`/movie/${id}`} >
               <button className="more-info-button" onClick={() => {
                 getVideos();
                 setFocus();

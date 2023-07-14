@@ -1,12 +1,13 @@
-import '../css/PageNotFound.css'
-import '../images/gauntlet.jpeg'
+import '../css/PageNotFound.css';
+import '../images/gauntlet.jpeg';
+import { Link } from 'react-router-dom';
 
 const PageNotFound = () => {
   return (
     <div class='page-not-found'>
       <h1>Oh, SNAP!</h1>
-      <p>404: The page you are looking for was lost in the Blip!</p>
-      <p>Please head back to our main page.</p>
+      <h2>404: The page you are looking for was lost in the Blip!</h2>
+      <h2>Please head back to our <Link to={'/'}>main page.</Link></h2>
     </div>
   )
 }

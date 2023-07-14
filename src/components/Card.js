@@ -13,7 +13,7 @@ const Card = ({ id, poster_path, average_rating, getSingleMovie, getVideos, setF
         getVideos();
       }}
     >
-      <NavLink to={`/${id}`} className="card-container">
+      <NavLink to={`/movie/${id}`} className="card-container">
         <img 
           src={poster_path}
           className='card-poster-path'
