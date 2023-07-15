@@ -88,6 +88,10 @@ const App = () => {
         {<Focus
           focus = {focus}
           setFocus = {setFocus}
+          loading = {loading}
+          setLoading = {setLoading}
+          error = {error}
+          setError = {setError}
           reset = {reset}
           key = {focus.id}
         />}
