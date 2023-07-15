@@ -25,20 +25,20 @@
 .movies-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  padding-right: 60px;
-  padding-left: 30px;
+  padding-right: 5%;
+  padding-left: 2%;
   background-color: rgb(30, 30, 30);
   border: 1px;
   min-height:100px;
   height:100%;
   width:94vw;
-  margin-bottom: 14%;
+  margin-bottom: 17%;
 }
 
 .search {
   height:4vh;
   width:14vw;
-  margin-top: 23%;
+  margin-top: 24%;
   margin-left: 4%;
   margin-bottom: -3%;
 }
