@@ -1,0 +1,21 @@
+.search {
+  position: fixed;
+  right: 0;
+  height: 3%;
+  width: 20%;
+  margin-top: .75%;
+  margin-right: .5%;
+  padding-left: .5%;
+}
+
+.search, .search::placeholder {
+  font-size: 1.3rem;
+}
+
+.no-results {
+  position: fixed;
+  top: 50%;
+  left: 44%;
+  color: white;
+  font-size: 4vh;
+}
