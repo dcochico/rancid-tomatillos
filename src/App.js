@@ -1,13 +1,14 @@
 import Card from './components/Card';
 import Focus from './components/Focus';
 import Nav from './components/Nav';
+import Search from './components/Search'
 import PageNotFound from './components/PageNotFound';
 import { getAllMovies, getSingleMovie, getVideos } from './ApiCalls';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/Card.css';
-import Search from './components/Search'
+
 
 const App = () => {
   const [error, setError] = useState(null);
@@ -36,7 +37,7 @@ const App = () => {
         setLoading(false);
         setError(err.message)
       })
-  }
+  };
 
   useEffect(() => {
     getData(getAllMovies, null, setMovies, 'movies');
@@ -47,7 +48,7 @@ const App = () => {
     setPreview('');
     setFocus('');
     setVideos([]);
-  }
+  };
 
   const movieCards = movies.filter((movie) => {
     const searchMovie = search.toLowerCase()
@@ -58,7 +59,6 @@ const App = () => {
   }).map(movie => {
     
     return (
-     
       <Card 
         className="movie-card"
         key = {movie.id}
@@ -72,16 +72,12 @@ const App = () => {
     );
   });
 
-
-
-
   return (
     <div>
     <Routes>
       <Route path="/" element=
         {<div className='App'>
           {error && <h1 className='error-message'>{error}</h1>}
-        
           <Nav
             key = {preview.id}
             id = {preview.id}
@@ -96,7 +92,6 @@ const App = () => {
             setFocus = {() => setFocus(preview)}
           />
           <Search 
-
             movieCards={movieCards}
             search={search}
             setSearch={setSearch}
@@ -115,8 +110,7 @@ const App = () => {
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
    </div>
-   
   );
-}
+};
 
 export default App;

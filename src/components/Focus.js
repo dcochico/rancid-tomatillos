@@ -8,6 +8,10 @@ const Focus = ({ focus, reset }) => {
     backgroundImage: `url(${focus.backdrop_path})`
   }
 
+  const allGenres = focus.genres.map(genre => {
+    return <p className='all-genres'>{genre}</p>
+  })
+
   return (
     <section
       className='focus-container'
@@ -21,7 +25,7 @@ const Focus = ({ focus, reset }) => {
       </div>
       <div className='focus-movie-overview'>
         <p className ="movie-summary">{focus.overview}</p>
-        <p className="focus-genres">{focus.genres}</p>
+        <p className="focus-genres">{allGenres}</p>
       </div>
       <Link to={`/`} >
         <button className="focus-button" onClick={reset}>Back</button>
