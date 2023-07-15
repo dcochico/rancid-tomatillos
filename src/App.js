@@ -11,7 +11,7 @@ import './css/Card.css';
 
 
 const App = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
@@ -31,7 +31,7 @@ const App = () => {
       .then(data => {
         setter(data[key]);
         setLoading(false);
-        setError(null);
+        setError('');
       })
       .catch(err => {
         setLoading(false);
@@ -41,7 +41,7 @@ const App = () => {
 
   useEffect(() => {
     getData(getAllMovies, null, setMovies, 'movies');
-    setError(null);
+    setError('');
   }, []);
   
   const reset = () => {
@@ -50,14 +50,24 @@ const App = () => {
     // setVideos([]);
   }
 
-  const movieCards = movies.filter((movie) => {
-    const searchMovie = search.toLowerCase()
+  const separateGenres = movie => movie.genres.map(genre => <p>{genre}</p>);
+
+  const movieCards = movies.map(movie => {
     return (
-      search === ''
-      ? movie : movie.title.toLowerCase().includes(searchMovie) 
-    )
-  }).map(movie => {
-    
+      <Card 
+        className="movie-card"
+        key = {movie.id}
+        id = {movie.id}
+        poster_path = {movie.poster_path}
+        average_rating = {movie.average_rating}
+        getSingleMovie = {() => getData(getSingleMovie, movie.id, setPreview, 'movie')}
+        // getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
+        setFocus = {() => setFocus(preview)}
+      />
+    );
+  });
+
+  const searchResults = movies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase() || search)).map(movie => {
     return (
       <Card 
         className="movie-card"
@@ -73,7 +83,6 @@ const App = () => {
   });
 
   return (
-    <div>
     <Routes>
       <Route path="/" element=
         {<div className='App'>
@@ -92,11 +101,12 @@ const App = () => {
             setFocus = {() => setFocus(preview)}
           />
           <Search 
-            movieCards={movieCards}
-            search={search}
-            setSearch={setSearch}
+            search = {search}
+            setSearch = {setSearch}
+            searchResults = {searchResults}
           />
-              {loading && <h1 className="loading">Loading...</h1>}
+          <div className='movies-container'>{!search ? movieCards : searchResults}</div>
+          {loading && <h1 className="loading">Loading...</h1>}
         </div>}
       />
       <Route path="/movies/:id" element=
@@ -113,7 +123,6 @@ const App = () => {
       />
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
-   </div>
   );
 };
 

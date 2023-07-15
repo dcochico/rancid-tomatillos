@@ -22,7 +22,7 @@ describe('Single Movie View', () => {
       .get('.focus-description').contains('p', '125 minutes')
       .get('.focus-description').contains('p', '2022-10-19')
       .get('.focus-movie-overview').contains('p', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
-      .get('.focus-movie-overview').contains('p', 'ActionFantasyScience Fiction')
+      .get('.focus-movie-overview').contains('p', 'Action • Fantasy • Science Fiction')
       .get('.focus-container').contains('button', 'Back')
   });
 
@@ -33,7 +33,7 @@ describe('Single Movie View', () => {
       .get('.focus-description').contains('p', '102 minutes')
       .get('.focus-description').contains('p', '2022-11-15')
       .get('.focus-movie-overview').contains('p', 'When Sheriff Roy Pulsipher finds himself in the afterlife, he joins a special police force and returns to Earth to save humanity from the undead.')
-      .get('.focus-movie-overview').contains('p', 'FantasyActionComedyCrime')
+      .get('.focus-movie-overview').contains('p', 'Fantasy • Action • Comedy • Crime')
       .get('.focus-container').contains('button', 'Back')
   });
 

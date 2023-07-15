@@ -18,9 +18,7 @@ const Nav = ({ id, title, average_rating, release_date, tagline, backdrop_path, 
           className='nav-preview'
           style={styles}
         >
-          <div
-            className='nav-preview-info'
-          >
+          <div className='nav-preview-info'>
             <h1 className='preview-title'>{title}</h1>
             <div>
               <p>{average_rating}/10</p>
