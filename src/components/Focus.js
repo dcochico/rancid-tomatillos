@@ -39,13 +39,9 @@ const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset })
       {
         error ?
         <h1 className='error-message'>{error}</h1> :
-        <div>
+        <div className='focus-wrap'>
           <h1 className="focus-title"> {focus.title}</h1>
-          <div className='focus-description'>
-            <p>{focus.average_rating}/10</p>
-            <p>{focus.runtime} minutes</p>
-            <p>{focus.release_date}</p>
-          </div>
+          <p className='focus-description'>🍅{focus.average_rating * 10}% • {focus.runtime} minutes • {focus.release_date ? focus.release_date.slice(0, 4) : focus.release_date}</p>
           <div className='focus-movie-overview'>
             <p className ="movie-summary">{focus.overview}</p>
             <p>{focus.genres ? focus.genres.join(' • ') : focus.genres}</p>

@@ -19,7 +19,7 @@ const Card = ({ id, poster_path, average_rating, getSingleMovie, setFocus }) => 
           }}
         />
       </NavLink>
-        <h2 className="rating-number">{average_rating}/10</h2>
+        <h2 className="rating-number">🍅 {average_rating * 10}%</h2>
     </div>
   );
 }
