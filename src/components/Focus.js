@@ -1,13 +1,14 @@
 import '../css/Focus.css';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getSingleMovie } from '../ApiCalls';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset, splitGenres }) => {
+const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset }) => {
   let id = useParams().id;
 
   useEffect(() => {
+    setLoading(true);
     getSingleMovie(id)
       .then(res => {
         if(!res.ok) {
@@ -18,7 +19,7 @@ const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset, s
       .then(data => {
         setFocus(data.movie);
         setLoading(false);
-        setError(null);
+        setError('');
       })
       .catch(err => {
         setLoading(false);
@@ -47,7 +48,7 @@ const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset, s
           </div>
           <div className='focus-movie-overview'>
             <p className ="movie-summary">{focus.overview}</p>
-            <div>{() => splitGenres(focus.genres)}</div>
+            <p>{focus.genres ? focus.genres.join(' • ') : focus.genres}</p>
           </div>
           <Link to={`/`} >
             <button className="focus-button" onClick={reset}>Back</button>
@@ -67,6 +68,5 @@ Focus.propTypes = {
   setLoading: PropTypes.func.isRequired,
   error: PropTypes.any.isRequired,
   setError: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired,
-  splitGenres: PropTypes.func.isRequired
+  reset: PropTypes.func.isRequired
 }

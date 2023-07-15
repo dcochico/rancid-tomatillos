@@ -11,7 +11,7 @@ import './css/Card.css';
 
 
 const App = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
@@ -31,7 +31,7 @@ const App = () => {
       .then(data => {
         setter(data[key]);
         setLoading(false);
-        setError(null);
+        setError('');
       })
       .catch(err => {
         setLoading(false);
@@ -41,7 +41,7 @@ const App = () => {
 
   useEffect(() => {
     getData(getAllMovies, null, setMovies, 'movies');
-    setError(null);
+    setError('');
   }, []);
   
   const reset = () => {
@@ -49,10 +49,8 @@ const App = () => {
     setFocus('');
     // setVideos([]);
   }
-  console.log('app rendering')
-  const splitGenres = genres => genres.map(genre => {
-    return <p className='all-genres'>{genre}</p>
-  })
+
+  const separateGenres = movie => movie.genres.map(genre => <p>{genre}</p>);
 
   const movieCards = movies.map(movie => {
     return (
@@ -121,7 +119,6 @@ const App = () => {
           setError = {setError}
           reset = {reset}
           key = {focus.id}
-          splitGenres = {splitGenres}
         />}
       />
       <Route path='*' element={<PageNotFound/>}/>
