@@ -8,7 +8,7 @@ const Search = ({ searchResults, search, setSearch }) => {
         <input 
           className="search"
           type="text"
-          placeholder='Search for Titles'
+          placeholder='🔍 Search for Titles'
           value={search}
           onChange={e => setSearch(e.target.value)}
         />

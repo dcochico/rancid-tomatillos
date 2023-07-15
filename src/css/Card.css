@@ -1,5 +1,5 @@
 body, html {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(50, 50, 50);
 }
 
 .card-container {
@@ -7,16 +7,20 @@ body, html {
   margin: 11% 0% -10% 7%;
 }
 
-.card-poster-path:hover {
-  transition: transform .1s;
-  height: 104%;
-  width: 104%;
-  cursor: pointer;
-}
-
 .card-poster-path {
   height: 100%;
   width: 100%;
+}
+
+.card-poster-path:hover {
+  box-shadow:
+    0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #fe132b,
+    0 0 0.8rem #fe1313,
+    0 0 2.8rem #fe1342,
+    inset 0 0 1.3rem #fe1390; 
+  cursor: pointer;
 }
 
 .rating-number {
@@ -27,6 +31,14 @@ body, html {
   color: white;
 }
 
+.loading {
+  position: fixed;
+  bottom: 0%;
+  right: -1%;
+  z-index: 0;
+  height: 10%;
+}
+
 .movies-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -34,6 +46,7 @@ body, html {
   padding-left: 2%;
   padding-right: 5%;
   border: 1px;
+  z-index: 1;
 }
 
 @media screen and (max-width: 1270px) {

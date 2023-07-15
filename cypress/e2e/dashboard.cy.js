@@ -24,11 +24,11 @@ describe('Home View', () => {
   });
 
   it('Should display an average user rating beneath each movie card', () => {
-    cy.get('.card-container').first().contains('h2', '4/10');
+    cy.get('.card-container').first().contains('h2', '🍅 40%');
   });
 
   it("Should display a different movie's average rating beneath its movie card", () => {
-    cy.get('.card-container').last().contains('h2', '7/10')
+    cy.get('.card-container').last().contains('h2', '🍅 70%')
   });
 
   it("Should display a movie's information in nav-bar when hovering over its movie card", () => {
@@ -36,10 +36,9 @@ describe('Home View', () => {
       .wait(500)
       .get('.nav-preview').find('.nav-preview-info')
       .get('.nav-preview-info').contains('h1', 'Black Adam')
-      .get('div').contains('p', '4/10')
-      .get('div').contains('p', '2022-10-19')
+      .get('.nav-preview-info').contains('p', '🍅 40% • 2022')
       .get('.nav-preview-info').contains('h2', 'The world needed a hero. It got Black Adam.')
-      // .get('.nav-preview-info').contains('h3', 'ActionFantasyScience Fiction')
+      .get('.nav-preview-info').contains('p', 'Action • Fantasy • Science Fiction')
       .get('.nav-preview-info').contains('button', 'More Info')
   });
 
@@ -48,10 +47,9 @@ describe('Home View', () => {
       .wait(500)
       .get('.nav-preview').find('.nav-preview-info')
       .get('.nav-preview-info').contains('h1', 'R.I.P.D. 2: Rise of the Damned')
-      .get('div').contains('p', '7/10')
-      .get('div').contains('p', '2022-11-15')
+      .get('.nav-preview-info').contains('p', '🍅 70% • 2022')
       .get('.nav-preview-info').contains('h2', 'Meet the new law of the Afterlife.')
-      // .get('.nav-preview-info').contains('h3', 'FantasyActionComedyCrime')
+      .get('.nav-preview-info').contains('p', 'Fantasy • Action • Comedy • Crime')
       .get('.nav-preview-info').contains('button', 'More Info')
   });
 

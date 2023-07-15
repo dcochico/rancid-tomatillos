@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/Card.css';
+import './images/load-gif.gif';
 
 
 const App = () => {
@@ -49,8 +50,6 @@ const App = () => {
     setFocus('');
     // setVideos([]);
   }
-
-  const separateGenres = movie => movie.genres.map(genre => <p>{genre}</p>);
 
   const movieCards = movies.map(movie => {
     return (
@@ -105,8 +104,9 @@ const App = () => {
             setSearch = {setSearch}
             searchResults = {searchResults}
           />
-          <div className='movies-container'>{!search ? movieCards : searchResults}</div>
-          {loading && <h1 className="loading">Loading...</h1>}
+          {!error && <div className='movies-container'>{!search ? movieCards : searchResults}</div>}
+          {loading && <img className='loading' src={require('./images/load-gif.gif')}/>}
+          {/* <img className='loading' src={require('./images/load-gif.gif')}/> */}
         </div>}
       />
       <Route path="/movies/:id" element=

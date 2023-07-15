@@ -6,6 +6,7 @@
   margin-top: .75%;
   margin-right: .5%;
   padding-left: .5%;
+  z-index: 3;
 }
 
 .search, .search::placeholder {
