@@ -11,7 +11,7 @@ describe('Home View', () => {
     stubRequest('', 200, "movies")
     stubRequest('/436270', 200, 'blackAdam')
     stubRequest('/724495', 200, 'womanKing')
-    stubRequest('1013860', 200, 'ripd')
+    stubRequest('/1013860', 200, 'ripd')
     cy.visit('http://localhost:3000')
   });
 
