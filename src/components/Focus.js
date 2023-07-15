@@ -1,9 +1,31 @@
 import '../css/Focus.css';
+import { useEffect } from 'react';
+import { getSingleMovie } from '../ApiCalls';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Focus = ({ focus, reset }) => {
+const Focus = ({ focus, setFocus, reset }) => {
   let id = useParams().id;
+
+  useEffect(() => {
+    getSingleMovie(id)
+      .then(res => {
+        if(!res.ok) {
+          throw Error('Unable to fetch data at this time. Please try again later.');
+        }
+        return res.json();
+      })
+      .then(data => {
+        setFocus(data.movie);
+        // setLoading(false);
+        // setError(null);
+      })
+      .catch(err => {
+        // setLoading(false);
+        // setError(err.message)
+      })
+  }, [])
+
   let styles = {
     backgroundImage: `url(${focus.backdrop_path})`
   }

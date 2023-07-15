@@ -2,7 +2,7 @@ import Card from './components/Card';
 import Focus from './components/Focus';
 import Nav from './components/Nav';
 import PageNotFound from './components/PageNotFound';
-import { getAllMovies, getSingleMovie, getVideos } from './ApiCalls';
+import { getAllMovies, getSingleMovie } from './ApiCalls';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './css/App.css';
@@ -14,7 +14,7 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
   const [focus, setFocus] = useState('');
-  const [videos, setVideos] = useState([]);
+  // const [videos, setVideos] = useState([]);
 
   const getData = (request, id, setter, key) => {
     setLoading(true);
@@ -44,7 +44,7 @@ const App = () => {
   const reset = () => {
     setPreview('');
     setFocus('');
-    setVideos([]);
+    // setVideos([]);
   }
 
   const movieCards = movies.map(movie => {
@@ -56,7 +56,7 @@ const App = () => {
         poster_path = {movie.poster_path}
         average_rating = {movie.average_rating}
         getSingleMovie = {() => getData(getSingleMovie, movie.id, setPreview, 'movie')}
-        getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
+        // getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
         setFocus = {() => setFocus(preview)}
       />
     );
@@ -77,14 +77,14 @@ const App = () => {
             genres = {preview.genres}
             backdrop_path = {preview.backdrop_path}
             preview = {preview}
-            getVideos = {() => getData(getVideos, preview.id, setVideos, 'videos')}
+            // getVideos = {() => getData(getVideos, preview.id, setVideos, 'videos')}
             setFocus = {() => setFocus(preview)}
           />
           {loading && <h1 className="loading">Loading...</h1>}
           <div className='movies-container'>{movieCards}</div>
         </div>}
       />
-      <Route path="/movie/:id" element=
+      <Route path="/movies/:id" element=
         {<Focus
           focus = {focus}
           setFocus = {setFocus}
