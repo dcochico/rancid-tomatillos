@@ -4,7 +4,7 @@ import { getSingleMovie } from '../ApiCalls';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset }) => {
+const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset, splitGenres }) => {
   let id = useParams().id;
 
   useEffect(() => {
@@ -30,10 +30,6 @@ const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset })
     backgroundImage: `url(${focus.backdrop_path})`
   }
 
-  const allGenres = focus.genres.map(genre => {
-    return <p className='all-genres'>{genre}</p>
-  })
-
   return (
     <section
       className='focus-container'
@@ -51,7 +47,7 @@ const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset })
           </div>
           <div className='focus-movie-overview'>
             <p className ="movie-summary">{focus.overview}</p>
-            <p className="focus-genres">{allGenres}</p>
+            <div>{() => splitGenres(focus.genres)}</div>
           </div>
           <Link to={`/`} >
             <button className="focus-button" onClick={reset}>Back</button>
@@ -71,5 +67,6 @@ Focus.propTypes = {
   setLoading: PropTypes.func.isRequired,
   error: PropTypes.any.isRequired,
   setError: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired
+  reset: PropTypes.func.isRequired,
+  splitGenres: PropTypes.func.isRequired
 }

@@ -49,28 +49,10 @@ const App = () => {
     setFocus('');
     // setVideos([]);
   }
-
-  // const movieCards = movies.filter((movie) => {
-  //   const searchMovie = search.toLowerCase()
-  //   return (
-  //     search === '' ?
-  //     movie :
-  //     movie.title.toLowerCase().includes(searchMovie) 
-  //   )
-  // }).map(movie => {
-  //   return (
-  //     <Card 
-  //       className="movie-card"
-  //       key = {movie.id}
-  //       id = {movie.id}
-  //       poster_path = {movie.poster_path}
-  //       average_rating = {movie.average_rating}
-  //       getSingleMovie = {() => getData(getSingleMovie, movie.id, setPreview, 'movie')}
-  //       // getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
-  //       setFocus = {() => setFocus(preview)}
-  //     />
-  //   );
-  // });
+  console.log('app rendering')
+  const splitGenres = genres => genres.map(genre => {
+    return <p className='all-genres'>{genre}</p>
+  })
 
   const movieCards = movies.map(movie => {
     return (
@@ -103,7 +85,6 @@ const App = () => {
   });
 
   return (
-    <div>
     <Routes>
       <Route path="/" element=
         {<div className='App'>
@@ -140,11 +121,11 @@ const App = () => {
           setError = {setError}
           reset = {reset}
           key = {focus.id}
+          splitGenres = {splitGenres}
         />}
       />
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
-   </div>
   );
 };
 
