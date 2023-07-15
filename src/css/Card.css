@@ -30,8 +30,53 @@ body, html {
 .movies-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  padding-top: 23.5%;
+  margin-top: 25.5%;
   padding-left: 2%;
   padding-right: 5%;
   border: 1px;
+}
+
+@media screen and (max-width: 1270px) {
+  
+  .movies-container {
+   
+    margin-top: 30.5%;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  
+  .movies-container {
+   
+    margin-top: 35.5%;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  
+  .movies-container {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 45.5%;
+  }
+  .search {
+    width: 60%;
+    margin-top: .75%;
+    margin-right: 5%;
+    /* padding-left: .5%; */
+  }
+}
+@media screen and (max-width: 715px) {
+  
+  .movies-container {
+    margin-top: 55.5%;
+  }
+ 
+}
+
+@media screen and (max-width: 590px) {
+  
+  .movies-container {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 66.5%;
+  }
 }
