@@ -39,7 +39,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 20%;
+  width: 15%;
+}
+
+.focus-genres {
+  display:flex;
+  flex-direction: row;
+  width: 30%;
+}
+
+.all-genres {
+  margin-right: 5%;
 }
 
 .movie-summary {

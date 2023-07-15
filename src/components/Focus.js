@@ -30,6 +30,10 @@ const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset })
     backgroundImage: `url(${focus.backdrop_path})`
   }
 
+  const allGenres = focus.genres.map(genre => {
+    return <p className='all-genres'>{genre}</p>
+  })
+
   return (
     <section
       className='focus-container'

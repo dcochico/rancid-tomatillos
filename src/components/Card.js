@@ -9,7 +9,6 @@ const Card = ({ id, poster_path, average_rating, getSingleMovie, setFocus }) => 
       role='button'
     >
       <NavLink to={`/movies/${id}`}>
-
         <img 
           src={poster_path}
           className='card-poster-path' 
@@ -21,7 +20,6 @@ const Card = ({ id, poster_path, average_rating, getSingleMovie, setFocus }) => 
         />
       </NavLink>
         <h2 className="rating-number">{average_rating}/10</h2>
-     
     </div>
   );
 }

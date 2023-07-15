@@ -1,12 +1,10 @@
 * {
   font-family: 'Bebas Neue', sans-serif;
-  
 }
 
 body, html {
   height: 100%;
   width: 100%;
-  
 }
 
 .App {
@@ -30,4 +28,3 @@ body, html {
   top: 50%;
   left: 30%;
 }
-

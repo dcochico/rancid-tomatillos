@@ -1,6 +1,7 @@
 import Card from './components/Card';
 import Focus from './components/Focus';
 import Nav from './components/Nav';
+import Search from './components/Search'
 import PageNotFound from './components/PageNotFound';
 import { getAllMovies, getSingleMovie } from './ApiCalls';
 import { useState, useEffect } from 'react';
@@ -8,13 +9,15 @@ import { Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/Card.css';
 
+
 const App = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
   const [focus, setFocus] = useState('');
-  // const [videos, setVideos] = useState([]);
+//   const [videos, setVideos] = useState([]);
+  const [search, setSearch] = useState("");
 
   const getData = (request, id, setter, key) => {
     setLoading(true);
@@ -34,7 +37,7 @@ const App = () => {
         setLoading(false);
         setError(err.message)
       })
-  }
+  };
 
   useEffect(() => {
     getData(getAllMovies, null, setMovies, 'movies');
@@ -47,7 +50,14 @@ const App = () => {
     // setVideos([]);
   }
 
-  const movieCards = movies.map(movie => {
+  const movieCards = movies.filter((movie) => {
+    const searchMovie = search.toLowerCase()
+    return (
+      search === ''
+      ? movie : movie.title.toLowerCase().includes(searchMovie) 
+    )
+  }).map(movie => {
+    
     return (
       <Card 
         className="movie-card"
@@ -63,6 +73,7 @@ const App = () => {
   });
 
   return (
+    <div>
     <Routes>
       <Route path="/" element=
         {<div className='App'>
@@ -80,8 +91,12 @@ const App = () => {
             // getVideos = {() => getData(getVideos, preview.id, setVideos, 'videos')}
             setFocus = {() => setFocus(preview)}
           />
-          {loading && <h1 className="loading">Loading...</h1>}
-          <div className='movies-container'>{movieCards}</div>
+          <Search 
+            movieCards={movieCards}
+            search={search}
+            setSearch={setSearch}
+          />
+              {loading && <h1 className="loading">Loading...</h1>}
         </div>}
       />
       <Route path="/movies/:id" element=
@@ -98,7 +113,8 @@ const App = () => {
       />
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
+   </div>
   );
-}
+};
 
 export default App;
