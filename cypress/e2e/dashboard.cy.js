@@ -79,6 +79,26 @@ describe('Home View', () => {
       .url().should('eq', 'http://localhost:3000/movies/1013860')
   });
 
+  it('Should display a search bar', () => {
+    cy.get('.search-box').find('.search')
+  });
+
+  it('Should filter movie results per keystroke', () => {
+    cy.get('.movies-container').children().should('have.length', 3)
+      .get('.search').type('am')
+      .get('.movies-container').children().should('have.length', 2)
+  });
+
+  it('Should interpret upper- and lowercase letters as being the same', () => {
+    cy.get('.search').type('bLaCk AdAm')
+      .get('.movies-container').children().should('have.length', 1)
+  })
+
+  it('Should display an error message when no results match search criteria', () => {
+    cy.get('.search').type('asdfghjkl')
+      .get('div').contains('p', 'Sorry, No Results')
+  })
+
   it('Should display an error message if the all-movies network request fails', () => {
     stubRequest('', 500, "movies")
     cy.get('.error-message')

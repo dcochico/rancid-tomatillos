@@ -1,4 +1,5 @@
-import '../css/Search.css'
+import '../css/Search.css';
+import PropTypes from 'prop-types';
 
 const Search = ({ searchResults, search, setSearch }) => {
   return (
@@ -18,3 +19,9 @@ const Search = ({ searchResults, search, setSearch }) => {
 };
 
 export default Search;
+
+Search.propTypes = {
+  searchResults: PropTypes.any.isRequired,
+  search: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired
+}
