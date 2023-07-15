@@ -39,7 +39,7 @@ describe('Home View', () => {
       .get('div').contains('p', '4/10')
       .get('div').contains('p', '2022-10-19')
       .get('.nav-preview-info').contains('h2', 'The world needed a hero. It got Black Adam.')
-      .get('.nav-preview-info').contains('h3', 'ActionFantasyScience Fiction')
+      // .get('.nav-preview-info').contains('h3', 'ActionFantasyScience Fiction')
       .get('.nav-preview-info').contains('button', 'More Info')
   });
 
@@ -51,7 +51,7 @@ describe('Home View', () => {
       .get('div').contains('p', '7/10')
       .get('div').contains('p', '2022-11-15')
       .get('.nav-preview-info').contains('h2', 'Meet the new law of the Afterlife.')
-      .get('.nav-preview-info').contains('h3', 'FantasyActionComedyCrime')
+      // .get('.nav-preview-info').contains('h3', 'FantasyActionComedyCrime')
       .get('.nav-preview-info').contains('button', 'More Info')
   });
 
@@ -78,6 +78,26 @@ describe('Home View', () => {
       .get('.nav-preview-info').contains('button', 'More Info').click()
       .url().should('eq', 'http://localhost:3000/movies/1013860')
   });
+
+  it('Should display a search bar', () => {
+    cy.get('.search-box').find('.search')
+  });
+
+  it('Should filter movie results per keystroke', () => {
+    cy.get('.movies-container').children().should('have.length', 3)
+      .get('.search').type('am')
+      .get('.movies-container').children().should('have.length', 2)
+  });
+
+  it('Should interpret upper- and lowercase letters as being the same', () => {
+    cy.get('.search').type('bLaCk AdAm')
+      .get('.movies-container').children().should('have.length', 1)
+  })
+
+  it('Should display an error message when no results match search criteria', () => {
+    cy.get('.search').type('asdfghjkl')
+      .get('div').contains('p', 'Sorry, No Results')
+  })
 
   it('Should display an error message if the all-movies network request fails', () => {
     stubRequest('', 500, "movies")

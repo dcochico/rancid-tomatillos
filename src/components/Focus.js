@@ -1,5 +1,5 @@
 import '../css/Focus.css';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getSingleMovie } from '../ApiCalls';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -8,6 +8,7 @@ const Focus = ({ focus, setFocus, setLoading, error, setError, reset }) => {
   let id = useParams().id;
 
   useEffect(() => {
+    setLoading(true);
     getSingleMovie(id)
       .then(res => {
         if(!res.ok) {
@@ -18,7 +19,7 @@ const Focus = ({ focus, setFocus, setLoading, error, setError, reset }) => {
       .then(data => {
         setFocus(data.movie);
         setLoading(false);
-        setError(null);
+        setError('');
       })
       .catch(err => {
         setLoading(false);
@@ -29,10 +30,6 @@ const Focus = ({ focus, setFocus, setLoading, error, setError, reset }) => {
   let styles = {
     backgroundImage: `url(${focus.backdrop_path})`
   }
-
-  const allGenres = focus.genres.map(genre => {
-    return <p className='all-genres'>{genre}</p>
-  })
 
   return (
     <section
@@ -51,7 +48,7 @@ const Focus = ({ focus, setFocus, setLoading, error, setError, reset }) => {
           </div>
           <div className='focus-movie-overview'>
             <p className ="movie-summary">{focus.overview}</p>
-            <p className="focus-genres">{allGenres}</p>
+            <p>{focus.genres ? focus.genres.join(' • ') : focus.genres}</p>
           </div>
           <Link to={`/`} >
             <button className="focus-button" onClick={reset}>Back</button>
