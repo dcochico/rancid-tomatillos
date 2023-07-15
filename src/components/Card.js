@@ -1,17 +1,17 @@
-import '../css/Card.css';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 const Card = ({ id, poster_path, average_rating, getSingleMovie, setFocus }) => {
   return (
     <div
-      className="card-container"
+      className='card-container'
       role='button'
     >
       <NavLink to={`/movies/${id}`}>
         <img 
           src={poster_path}
-          className='card-poster-path' 
+          className='card-poster-path'
           onMouseEnter={getSingleMovie}
           onClick={() => {
             setFocus();
