@@ -4,7 +4,7 @@ import { getSingleMovie } from '../ApiCalls';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Focus = ({ focus, setFocus, loading, setLoading, error, setError, reset }) => {
+const Focus = ({ focus, setFocus, setLoading, error, setError, reset }) => {
   let id = useParams().id;
 
   useEffect(() => {
