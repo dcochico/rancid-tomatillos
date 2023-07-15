@@ -4,11 +4,16 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdrop_path, preview, getVideos, setFocus }) => {
+ 
+
+  
   let styles = {
     backgroundImage: `url(${backdrop_path})`
   }
+
   return (
     <nav className='nav-bar'>
+
       {
         !preview ? 
         <div className="header-div">

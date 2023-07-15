@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/Card.css';
+import Search from './components/Search'
 
 const App = () => {
   const [error, setError] = useState(null);
@@ -15,6 +16,7 @@ const App = () => {
   const [preview, setPreview] = useState('');
   const [focus, setFocus] = useState('');
   const [videos, setVideos] = useState([]);
+  const [search, setSearch] = useState("");
 
   const getData = (request, id, setter, key) => {
     setLoading(true);
@@ -47,8 +49,16 @@ const App = () => {
     setVideos([]);
   }
 
-  const movieCards = movies.map(movie => {
+  const movieCards = movies.filter((movie) => {
+    const searchMovie = search.toLowerCase()
     return (
+      search === ''
+      ? movie : movie.title.toLowerCase().includes(searchMovie) 
+    )
+  }).map(movie => {
+    
+    return (
+     
       <Card 
         className="movie-card"
         key = {movie.id}
@@ -62,11 +72,16 @@ const App = () => {
     );
   });
 
+
+
+
   return (
+    <div>
     <Routes>
       <Route path="/" element=
         {<div className='App'>
           {error && <h1 className='error-message'>{error}</h1>}
+        
           <Nav
             key = {preview.id}
             id = {preview.id}
@@ -80,8 +95,13 @@ const App = () => {
             getVideos = {() => getData(getVideos, preview.id, setVideos, 'videos')}
             setFocus = {() => setFocus(preview)}
           />
-          {loading && <h1 className="loading">Loading...</h1>}
-          <div className='movies-container'>{movieCards}</div>
+          <Search 
+
+            movieCards={movieCards}
+            search={search}
+            setSearch={setSearch}
+          />
+              {loading && <h1 className="loading">Loading...</h1>}
         </div>}
       />
       <Route path="/movie/:id" element=
@@ -94,6 +114,8 @@ const App = () => {
       />
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
+   </div>
+   
   );
 }
 
