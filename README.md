@@ -1,7 +1,9 @@
 # Rancid Tomatillos 
 
+[DEPLOYMENT LINK](https://rancid-tomatillos-nu.vercel.app/)
+
 ## ABSTRACT
-This project is definitely not Rotten Tomatoes. Nor is it Netflix. Nor is it IMDB. It’s R A N C I D T O M A T I L L O S. Very different!
+This project is definitely not Rotten Tomatoes. Nor is it Netflix. Nor is it IMDB. It’s R A N C I D T O M A T I L L O S. Very different! Our application uses Fetch API to display a collection of the most newly released movies. Clicking on a specific movie will take the user to the movie's own page, where the user can read more information and watch a YouTube preview.
 
 ## SET UP
 - Fork this repository.
@@ -31,14 +33,14 @@ This project is definitely not Rotten Tomatoes. Nor is it Netflix. Nor is it IMD
 </div>
 
 ## WINS, CHALLENGES & REFLECTIONS 
-# Wins
+### Wins
 - Implementing a dynamic nav-bar was super fun, and we're happy with how it turned out.
 - Embedding YouTube videos into our Focus pages was very satisfying to accomplish.
 - Creating a custom 404 error page was also a neat ticket.
-# Challenges
+### Challenges
 - Cypress tended to be buggy, so we would sometimes question whether our tests were failing due to faulty code or not.
 - Additionally, it could get frustrating sometimes when we would implement new features, and completely break our entire Cypress testing suite. We experienced just how sensitive Cypress can be.
-# Reflections
+### Reflections
 - Overall, this was such a fun project! React makes our lives a bit easier over plain old vanilla Javascript, and we are excited to build upon our project with more extensions in the future.
 
 ## PREVIEW OF APP
@@ -56,5 +58,5 @@ This project is definitely not Rotten Tomatoes. Nor is it Netflix. Nor is it IMD
 ![](https://user-images.githubusercontent.com/126428377/253804894-4c3f73b8-da9b-4cc1-8e7e-5b75312a7ef1.gif)
 
 ## CONTRIBUTERS 
-- [Dan Cochico](https://github.com/dcochico)
+- [Daniel Cochico](https://github.com/dcochico)
 - [Natalie Baker](https://github.com/Nathelene)
