@@ -101,6 +101,7 @@ const App = () => {
             searchResults = {searchResults}
           />
           {!error && <div className='movies-container'>{!search ? movieCards : searchResults}</div>}
+          {loading && <img className='loading' src={require('./images/load-gif.gif')}/>}
         </div>}
       />
       <Route path="/movies/:id" element=
