@@ -22,11 +22,6 @@ const Focus = ({ focus, getData, setFocus, setVideos, setTrailer, setLoading, vi
     backgroundImage: `url(${focus.backdrop_path})`
   }
 
-  let videoStyles = {
-    height: '200px',
-    width: '200px'
-  }
-
   return (
     <section
       className='focus-container'
@@ -37,12 +32,12 @@ const Focus = ({ focus, getData, setFocus, setVideos, setTrailer, setLoading, vi
         <h1 className='error-message'>{error}</h1> :
         <div className='focus-flex'>
           <div className='focus-wrap'>
-            <h1 className="focus-title"> {focus.title}</h1>
-            <p className='focus-description'>🍅{focus.average_rating * 10}% • {focus.runtime} minutes • {focus.release_date ? focus.release_date.slice(0, 4) : focus.release_date}</p>
-            <div className='focus-movie-overview'>
-              <p className ="movie-summary">{focus.overview}</p>
-              <p>{focus.genres ? focus.genres.join(' • ') : focus.genres}</p>
-            </div>
+            <h1 className="focus-title">{focus.title}</h1>
+            <p className='focus-info'>🍅{focus.average_rating * 10}% • {focus.runtime} minutes • {focus.release_date ? focus.release_date.slice(0, 4) : focus.release_date}</p>
+            {/* <div className='focus-movie-overview'> */}
+            <p className="focus-overview">{focus.overview}</p>
+            <p className='focus-genres'>{focus.genres ? focus.genres.join(' • ') : focus.genres}</p>
+            {/* </div> */}
             <Link to={`/`} >
               <button className="focus-button" onClick={reset}>Back</button>
             </Link>
@@ -50,9 +45,8 @@ const Focus = ({ focus, getData, setFocus, setVideos, setTrailer, setLoading, vi
           <div className='iframe-wrap'>
             <iframe
               src={trailer}
-              width={1120}
-              height={480}
-              ref={videoStyles}
+              width={960}
+              height={720}
               allow='fullscreen'
             ></iframe>
           </div>
@@ -70,11 +64,9 @@ Focus.propTypes = {
   setFocus: PropTypes.func.isRequired,
   setVideos: PropTypes.func.isRequired,
   setTrailer: PropTypes.func.isRequired,
-  // loading: PropTypes.bool.isRequired,
   setLoading: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,
   trailer: PropTypes.string.isRequired,
   error: PropTypes.any.isRequired,
-  // setError: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired
 }

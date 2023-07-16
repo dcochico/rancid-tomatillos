@@ -6,60 +6,49 @@
   margin: auto;
 }
 
-.focus-flex {
+.focus-container, .focus-flex {
   display: flex;
+  align-items: center;
 }
 
-.focus-title, .focus-description, .focus-movie-overview {
-  margin-left: 45px;
-  text-shadow: 2px 2px black;
+.focus-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.focus-button {
-  margin-left: 45px;
-  height:30px;
-  width:70px;
-  border: none;
-  border-radius: 3px;
-  background-color: white;
-  color:black;
-  cursor: pointer;
+.focus-title, .focus-info, .focus-overview, .focus-genres {
+  text-shadow: 1px 1px black;
+  text-align: center;
 }
 
 .focus-title {
-  padding-top: 23%;
-  font-size: 4vw;
-  margin-top: 0;
-  margin-bottom: -5px;
-  text-shadow: 2px 2px black;
+  font-size: 6vw;
+  line-height: 90%;
+  margin-bottom: -2%;
 }
 
-.focus-movie-overview {
-  width: 50%;
-  text-shadow: 2px 2px black;
+.focus-info {
+  margin-bottom: -2.25%;
 }
 
-.focus-description {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 15%;
+.focus-overview {
+  font-size: 1.5vw;
+  inline-size: 65%;
+  margin-bottom: -.5%;
 }
 
 .focus-genres {
-  display:flex;
-  flex-direction: row;
-  width: 30%;
+  font-size: .7vw;
 }
 
-.all-genres {
-  margin-right: 5%;
+.focus-button {
+  height: 3vh;
+  width: 3vw;
+  font-size: 0.8vw;
+  cursor: pointer;
 }
 
-.movie-summary {
-  font-size: 2.7vh;
+.iframe-wrap {
+  padding-right: 7%;
 }
-
-/* .iframe-wrap {
-  height: 100%;
-} */
