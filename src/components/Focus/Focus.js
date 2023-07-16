@@ -1,6 +1,6 @@
-import '../css/Focus.css';
+import '../Focus/Focus.css';
 import { useEffect } from 'react';
-import { getSingleMovie, getVideos } from '../ApiCalls';
+import { getSingleMovie, getVideos } from '../../ApiCalls';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 

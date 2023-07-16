@@ -1,5 +1,5 @@
-import '../css/PageNotFound.css';
-import '../images/gauntlet.jpeg';
+import '../PageNotFound/PageNotFound.css';
+import '../../images/gauntlet.jpeg';
 import { Link } from 'react-router-dom';
 
 const PageNotFound = () => {

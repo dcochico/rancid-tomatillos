@@ -1,13 +1,13 @@
-import Card from './components/Card';
-import Focus from './components/Focus';
-import Nav from './components/Nav';
-import Search from './components/Search'
-import PageNotFound from './components/PageNotFound';
+import Card from './components/Card/Card.js';
+import Focus from './components/Focus/Focus.js';
+import Nav from './components/Nav/Nav.js';
+import Search from './components/Search/Search.js'
+import PageNotFound from './components/PageNotFound/PageNotFound.js';
 import { getAllMovies, getSingleMovie } from './ApiCalls';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './css/App.css';
-import './css/Card.css';
+import './App.css';
+import './components/Card/Card.css';
 import './images/load-gif.gif';
 
 const App = () => {

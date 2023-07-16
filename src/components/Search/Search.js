@@ -1,4 +1,4 @@
-import '../css/Search.css';
+import '../Search/Search.css';
 import PropTypes from 'prop-types';
 
 const Search = ({ search, setSearch, searchResults }) => {

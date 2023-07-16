@@ -1,5 +1,4 @@
-import '../css/Nav.css';
-import '../images/avatar.png';
+import '../Nav/Nav.css';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
