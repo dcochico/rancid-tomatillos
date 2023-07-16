@@ -1,0 +1,203 @@
+.focus-container {
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+}
+
+.focus-container, .focus-flex {
+  display: flex;
+  align-items: center;
+}
+
+.focus-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.focus-title, .focus-info, .focus-overview, .focus-genres {
+  text-shadow: .5px .5px black;
+  text-align: center;
+}
+
+.focus-title {
+  font-size: 6vw;
+  line-height: 90%;
+  margin-bottom: -2%;
+}
+
+.focus-info {
+  margin-bottom: -2.25%;
+}
+
+.focus-overview {
+  font-size: 1.5vw;
+  inline-size: 65%;
+  margin-bottom: -.5%;
+}
+
+.focus-genres {
+  font-size: .7vw;
+}
+
+.focus-button {
+  height: 3vh;
+  width: 3vw;
+  font-size: 0.8vw;
+  border: none;
+  border-radius: 3px;
+}
+
+.focus-button:hover {
+  box-shadow:
+    0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #fe132b,
+    0 0 0.8rem #fe1313,
+    0 0 2.8rem #fe1342,
+    inset 0 0 1.3rem #fe1390; 
+  cursor: pointer;
+}
+
+.iframe-wrap {
+  padding-right: 7%;
+}
+
+@media screen and (max-width: 1685px) {
+  .focus-genres {
+    font-size: .85vw;
+  }
+}
+
+@media screen and (max-width: 1650px) {
+  .iframe-wrap {
+    padding-right: 2.5%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .focus-genres {
+    font-size: 1vw;
+  }
+
+  .focus-button {
+    font-size: 1.1vw;
+  }
+
+  .iframe-wrap {
+    padding-right: 1.7%;
+  }
+}
+
+@media screen and (max-width: 1405px) {
+  iframe {
+    height: 480px;
+    width: 853.33px;
+  }
+}
+
+@media screen and (max-width: 1379px) {
+  .focus-title {
+    margin-bottom: -5%;
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .iframe-wrap {
+    padding-right: 1%;
+  }
+}
+
+@media screen and (max-width: 1177px) {
+  .focus-flex {
+    flex-direction: column;
+  }
+
+  .focus-wrap {
+    order: 2;
+  }
+
+  .iframe-wrap {
+    order: 1;
+  }
+
+  .focus-title {
+    font-size: 5vw;
+    margin-bottom: -2%;
+  }
+
+  .focus-info {
+    margin-bottom: -1.5%;
+  }
+
+  .focus-overview {
+    font-size: 2vw;
+  }
+
+  .focus-genres {
+    font-size: 1.4vw;
+  }
+
+  .focus-button {
+    height: 3.5vh;
+    width: 5vw;
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  .focus-genres {
+    font-size: 1.8vw;
+  }
+
+  .focus-button {
+    font-size: 2vw;
+  }
+
+  iframe {
+    height: 360px;
+    width: 640px;
+  }
+}
+
+@media screen and (max-width: 653px) {
+  .focus-overview {
+    font-size: 3vw;
+  }
+
+  .focus-genres {
+    font-size: 2.3vw;
+  }
+
+  .iframe-wrap {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 643px) {
+  iframe {
+    height: 240px;
+    width: 426.67px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .focus-genres {
+    font-size: 2.7vw;
+  }
+
+  .focus-button {
+    width: 9vw;
+    font-size: 2.3vw;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  iframe {
+    height: 144px;
+    width: 256px;
+  }
+}

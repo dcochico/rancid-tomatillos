@@ -1,15 +1,14 @@
-import Card from './components/Card';
-import Focus from './components/Focus';
-import Nav from './components/Nav';
-import Search from './components/Search'
-import PageNotFound from './components/PageNotFound';
+import Card from './components/Card/Card.js';
+import Focus from './components/Focus/Focus.js';
+import Nav from './components/Nav/Nav.js';
+import Search from './components/Search/Search.js'
+import PageNotFound from './components/PageNotFound/PageNotFound.js';
 import { getAllMovies, getSingleMovie } from './ApiCalls';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './css/App.css';
-import './css/Card.css';
+import './App.css';
+import './components/Card/Card.css';
 import './images/load-gif.gif';
-
 
 const App = () => {
   const [error, setError] = useState('');
@@ -17,15 +16,16 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [preview, setPreview] = useState('');
   const [focus, setFocus] = useState('');
-//   const [videos, setVideos] = useState([]);
-  const [search, setSearch] = useState("");
+  const [videos, setVideos] = useState([]);
+  const [trailer, setTrailer] = useState('');
+  const [search, setSearch] = useState('');
 
   const getData = (request, id, setter, key) => {
     setLoading(true);
     request(id)
       .then(res => {
         if(!res.ok) {
-          throw Error('Unable to fetch data at this time. Please try again later.');
+          throw Error('Unexpected error. Please refresh the page.');
         }
         return res.json();
       })
@@ -48,19 +48,18 @@ const App = () => {
   const reset = () => {
     setPreview('');
     setFocus('');
-    // setVideos([]);
+    setVideos([]);
+    setTrailer('');
   }
 
   const movieCards = movies.map(movie => {
     return (
       <Card 
-        className="movie-card"
         key = {movie.id}
         id = {movie.id}
         poster_path = {movie.poster_path}
         average_rating = {movie.average_rating}
         getSingleMovie = {() => getData(getSingleMovie, movie.id, setPreview, 'movie')}
-        // getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
         setFocus = {() => setFocus(preview)}
       />
     );
@@ -69,13 +68,11 @@ const App = () => {
   const searchResults = movies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase() || search)).map(movie => {
     return (
       <Card 
-        className="movie-card"
         key = {movie.id}
         id = {movie.id}
         poster_path = {movie.poster_path}
         average_rating = {movie.average_rating}
         getSingleMovie = {() => getData(getSingleMovie, movie.id, setPreview, 'movie')}
-        // getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
         setFocus = {() => setFocus(preview)}
       />
     );
@@ -96,7 +93,6 @@ const App = () => {
             genres = {preview.genres}
             backdrop_path = {preview.backdrop_path}
             preview = {preview}
-            // getVideos = {() => getData(getVideos, preview.id, setVideos, 'videos')}
             setFocus = {() => setFocus(preview)}
           />
           <Search 
@@ -106,19 +102,21 @@ const App = () => {
           />
           {!error && <div className='movies-container'>{!search ? movieCards : searchResults}</div>}
           {loading && <img className='loading' src={require('./images/load-gif.gif')}/>}
-          {/* <img className='loading' src={require('./images/load-gif.gif')}/> */}
         </div>}
       />
       <Route path="/movies/:id" element=
         {<Focus
+          key = {focus.id}
+          getData = {getData}
           focus = {focus}
           setFocus = {setFocus}
-          loading = {loading}
           setLoading = {setLoading}
+          videos = {videos}
+          setVideos = {setVideos}
+          trailer = {trailer}
+          setTrailer = {setTrailer}
           error = {error}
-          setError = {setError}
           reset = {reset}
-          key = {focus.id}
         />}
       />
       <Route path='*' element={<PageNotFound/>}/>
