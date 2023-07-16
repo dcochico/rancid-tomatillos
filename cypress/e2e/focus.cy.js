@@ -61,6 +61,6 @@ describe('Single Movie View', () => {
     stubRequest('/436270', 500, 'blackAdam')
     stubRequest('/436270/videos', 500, 'blackAdam')
     cy.get('.card-poster-path').first().click()
-      .get('.focus-container').contains('h1', 'Unable to fetch data at this time. Please try again later.')
+      .get('.focus-container').contains('h1', 'Unexpected error. Please refresh the page.')
   });
 });

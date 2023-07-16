@@ -104,7 +104,6 @@ const App = () => {
             searchResults = {searchResults}
           />
           {!error && <div className='movies-container'>{!search ? movieCards : searchResults}</div>}
-          {loading && <img className='loading' src={require('./images/load-gif.gif')}/>}
         </div>}
       />
       <Route path="/movies/:id" element=
@@ -112,10 +111,8 @@ const App = () => {
           focus = {focus}
           getData = {getData}
           setFocus = {setFocus}
-          // loading = {loading}
           setLoading = {setLoading}
           error = {error}
-          // setError = {setError}
           videos = {videos}
           setVideos = {setVideos}
           trailer = {trailer}

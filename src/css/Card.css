@@ -1,6 +1,5 @@
 body, html {
   background-color: rgb(50, 50, 50);
-  /* scroll-snap-type: y proximity; */
 }
 
 .card-container {
@@ -12,7 +11,6 @@ body, html {
   height: 100%;
   width: 100%;
   border-radius: 15px;
-  /* scroll-snap-align: start; */
 }
 
 .card-poster-path:hover {
@@ -176,9 +174,14 @@ body, html {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 29%;
   }
+
+  .card-link {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-@media screen and (max-width: 725px) {
+@media screen and (max-width: 765px) {
   .loading {
     right: -5.6%;
   }
@@ -194,11 +197,6 @@ body, html {
 
   .card-poster-path {
     width: 67%;
-  }
-
-  .card-link {
-    display: flex;
-    justify-content: center;
   }
 
   .movies-container {
