@@ -1,5 +1,5 @@
 .nav-bar {
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(50, 50, 50);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,16 +11,6 @@
   z-index: 2;
 }
 
-.nav-bar-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  height: 45%;
-  width: 100%;
-  position: fixed;
-}
-
 .site-header {
   font-size: 5.5vh;
   padding-top: 5%;
@@ -28,8 +18,6 @@
 }
 
 .nav-preview {
-  display: flex;
-  justify-content: flex-start;
   height: 100%;
   width: 100%;
   background-size: cover;
@@ -37,9 +25,32 @@
 }
 
 .nav-preview-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   color: white;
-  text-shadow: 2px 2px black;
+  text-shadow: .5px .5px black;
   margin-left: 4%;
+}
+
+.preview-title {
+  font-size: 5vw;
+  margin-bottom: -1.8%;
+}
+
+.preview-info {
+  font-size: .8vw;
+  margin-bottom: -.8%;
+}
+
+.preview-tagline {
+  font-size: 1.3vw;
+  margin-bottom: 1%;
+}
+
+.preview-genres {
+  font-size: .75vw;
+  margin-bottom: .3%;
 }
 
 .more-info-button {
@@ -52,9 +63,12 @@
 }
 
 .more-info-button:hover {
+  box-shadow:
+    0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #fe132b,
+    0 0 0.8rem #fe1313,
+    0 0 2.8rem #fe1342,
+    inset 0 0 1.3rem #fe1390; 
   cursor: pointer;
-}
-
-.preview-title {
-  font-size: 5vh;
 }

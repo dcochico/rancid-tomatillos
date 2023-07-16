@@ -18,7 +18,7 @@
 }
 
 .focus-title, .focus-info, .focus-overview, .focus-genres {
-  text-shadow: 1px 1px black;
+  text-shadow: .5px .5px black;
   text-align: center;
 }
 
@@ -46,6 +46,18 @@
   height: 3vh;
   width: 3vw;
   font-size: 0.8vw;
+  border: none;
+  border-radius: 3px;
+}
+
+.focus-button:hover {
+  box-shadow:
+    0 0 .2rem #fff,
+    0 0 .2rem #fff,
+    0 0 2rem #fe132b,
+    0 0 0.8rem #fe1313,
+    0 0 2.8rem #fe1342,
+    inset 0 0 1.3rem #fe1390; 
   cursor: pointer;
 }
 

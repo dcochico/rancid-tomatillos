@@ -7,6 +7,11 @@ const Nav = ({ id, title, average_rating, release_date, genres, tagline, backdro
   let styles = {
     backgroundImage: `url(${backdrop_path})`
   }
+  
+  // let height = {
+  //   height: '45%'
+  // }
+
   return (
     <nav className='nav-bar'>
       {
@@ -20,7 +25,7 @@ const Nav = ({ id, title, average_rating, release_date, genres, tagline, backdro
         >
           <div className='nav-preview-info'>
             <h1 className='preview-title'>{title}</h1>
-            <p>🍅 {average_rating * 10}% • {release_date ? release_date.slice(0, 4) : release_date}</p>
+            <p className='preview-info'>🍅 {average_rating * 10}% • {release_date ? release_date.slice(0, 4) : release_date}</p>
             <h2 className='preview-tagline'>{tagline}</h2>
             <p className='preview-genres'>{genres ? genres.join(' • ') : genres}</p>
             <NavLink to={`/movies/${id}`} >

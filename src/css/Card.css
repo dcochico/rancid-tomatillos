@@ -10,6 +10,7 @@ body, html {
 .card-poster-path {
   height: 100%;
   width: 100%;
+  border-radius: 15px;
 }
 
 .card-poster-path:hover {
@@ -42,7 +43,7 @@ body, html {
 .movies-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  margin-top: 25.5%;
+  margin-top: 24%;
   padding-left: 2%;
   padding-right: 5%;
   border: 1px;
