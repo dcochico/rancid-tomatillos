@@ -8,7 +8,7 @@ const Card = ({ id, poster_path, average_rating, getSingleMovie, setFocus }) => 
       className='card-container'
       role='button'
     >
-      <NavLink to={`/movies/${id}`}>
+      <NavLink to={`/movies/${id}`} className='card-link'>
         <img 
           src={poster_path}
           className='card-poster-path'

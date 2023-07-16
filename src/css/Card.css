@@ -1,6 +1,6 @@
 body, html {
   background-color: rgb(50, 50, 50);
-  scroll-snap-type: y proximity;
+  /* scroll-snap-type: y proximity; */
 }
 
 .card-container {
@@ -12,7 +12,7 @@ body, html {
   height: 100%;
   width: 100%;
   border-radius: 15px;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
 }
 
 .card-poster-path:hover {
@@ -52,50 +52,109 @@ body, html {
   z-index: 1;
 }
 
-@media screen and (max-width: 1270px) {
-  
+@media screen and (max-width: 1760px) {
+  .card-container {
+    margin-left: 10%;
+  }
+
+  .card-poster-path {
+    width: 105%;
+  }
+
   .movies-container {
-   
-    margin-top: 30.5%;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 25%;
+  }
+
+  .rating-number {
+    margin-top: 2%;
   }
 }
 
-@media screen and (max-width: 1180px) {
-  
+@media screen and (max-width: 1680px) {
   .movies-container {
-   
-    margin-top: 35.5%;
+    margin-top: 26%;
   }
 }
 
-@media screen and (max-width: 930px) {
-  
+@media screen and (max-width: 1444px) {
   .movies-container {
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 45.5%;
-  }
-  .search {
-    width: 60%;
-    padding-right: 10%;
-
+    margin-top: 28.5%;
   }
 }
-@media screen and (max-width: 715px) {
-  
+
+@media screen and (max-width: 1303px) {
   .movies-container {
-    margin-top: 55.5%;
+    margin-top: 23.5%;
   }
- 
 }
 
-@media screen and (max-width: 590px) {
-  
+@media screen and (max-width: 1170px) {
+  .card-container {
+    margin-left: 10%;
+  }
+
+  .card-poster-path {
+    width: 100%;
+  }
+
+  .movies-container {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 27%;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .card-container {
+    margin-left: 4%;
+  }
+
+  .movies-container {
+    margin-top: 25%;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .card-poster-path {
+    width: 95%;
+  }
+
   .movies-container {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 66.5%;
+    margin-top: 29%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 13%;
   }
 
-  .search {
-    padding-right: 25%;
+  .card-poster-path {
+    width: 67%;
+  }
+
+  .card-link {
+    display: flex;
+    justify-content: center;
+  }
+
+  .movies-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    margin-top: 20%;
+  }
+
+  .card-poster-path {
+    width: 80%;
   }
 }

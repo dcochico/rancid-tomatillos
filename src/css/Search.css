@@ -20,3 +20,15 @@
   color: white;
   font-size: 4vh;
 }
+
+@media screen and (max-width: 750px) {
+  .search::placeholder {
+    font-size: .9rem;
+  }
+}
+
+@media screen and (max-width: 539px) {
+  .search::placeholder {
+    font-size: .85rem;
+  }
+}
