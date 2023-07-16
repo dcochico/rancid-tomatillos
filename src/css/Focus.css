@@ -6,6 +6,10 @@
   margin: auto;
 }
 
+.focus-flex {
+  display: flex;
+}
+
 .focus-title, .focus-description, .focus-movie-overview {
   margin-left: 45px;
   text-shadow: 2px 2px black;
@@ -55,3 +59,7 @@
 .movie-summary {
   font-size: 2.7vh;
 }
+
+/* .iframe-wrap {
+  height: 100%;
+} */
