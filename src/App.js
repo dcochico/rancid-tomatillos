@@ -3,7 +3,7 @@ import Focus from './components/Focus';
 import Nav from './components/Nav';
 import Search from './components/Search'
 import PageNotFound from './components/PageNotFound';
-import { getAllMovies, getSingleMovie, getVideos } from './ApiCalls';
+import { getAllMovies, getSingleMovie } from './ApiCalls';
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './css/App.css';
@@ -18,7 +18,7 @@ const App = () => {
   const [focus, setFocus] = useState('');
   const [videos, setVideos] = useState([]);
   const [trailer, setTrailer] = useState('');
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const getData = (request, id, setter, key) => {
     setLoading(true);
@@ -60,7 +60,6 @@ const App = () => {
         poster_path = {movie.poster_path}
         average_rating = {movie.average_rating}
         getSingleMovie = {() => getData(getSingleMovie, movie.id, setPreview, 'movie')}
-        getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
         setFocus = {() => setFocus(preview)}
       />
     );
@@ -74,7 +73,6 @@ const App = () => {
         poster_path = {movie.poster_path}
         average_rating = {movie.average_rating}
         getSingleMovie = {() => getData(getSingleMovie, movie.id, setPreview, 'movie')}
-        getVideos = {() => getData(getVideos, movie.id, setVideos, 'videos')}
         setFocus = {() => setFocus(preview)}
       />
     );
@@ -95,7 +93,6 @@ const App = () => {
             genres = {preview.genres}
             backdrop_path = {preview.backdrop_path}
             preview = {preview}
-            getVideos = {() => getData(getVideos, preview.id, setVideos, 'videos')}
             setFocus = {() => setFocus(preview)}
           />
           <Search 
@@ -108,17 +105,17 @@ const App = () => {
       />
       <Route path="/movies/:id" element=
         {<Focus
-          focus = {focus}
+          key = {focus.id}
           getData = {getData}
+          focus = {focus}
           setFocus = {setFocus}
           setLoading = {setLoading}
-          error = {error}
           videos = {videos}
           setVideos = {setVideos}
           trailer = {trailer}
           setTrailer = {setTrailer}
+          error = {error}
           reset = {reset}
-          key = {focus.id}
         />}
       />
       <Route path='*' element={<PageNotFound/>}/>

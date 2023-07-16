@@ -1,7 +1,7 @@
 import '../css/Search.css';
 import PropTypes from 'prop-types';
 
-const Search = ({ searchResults, search, setSearch }) => {
+const Search = ({ search, setSearch, searchResults }) => {
   return (
     <div>
       <form className="search-box">
@@ -21,7 +21,7 @@ const Search = ({ searchResults, search, setSearch }) => {
 export default Search;
 
 Search.propTypes = {
-  searchResults: PropTypes.any.isRequired,
   search: PropTypes.string.isRequired,
-  setSearch: PropTypes.func.isRequired
+  setSearch: PropTypes.func.isRequired,
+  searchResults: PropTypes.any.isRequired
 }

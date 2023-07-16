@@ -3,14 +3,10 @@ import '../images/avatar.png';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Nav = ({ id, title, average_rating, release_date, genres, tagline, backdrop_path, preview, setFocus }) => {
+const Nav = ({ id, title, average_rating, release_date, tagline, genres, backdrop_path, preview, setFocus }) => {
   let styles = {
     backgroundImage: `url(${backdrop_path})`
   }
-  
-  // let height = {
-  //   height: '45%'
-  // }
 
   return (
     <nav className='nav-bar'>
@@ -29,10 +25,7 @@ const Nav = ({ id, title, average_rating, release_date, genres, tagline, backdro
             <h2 className='preview-tagline'>{tagline}</h2>
             <p className='preview-genres'>{genres ? genres.join(' • ') : genres}</p>
             <NavLink to={`/movies/${id}`} >
-              <button className="more-info-button" onClick={() => {
-                // getVideos();
-                setFocus();
-              }}>More Info</button>
+              <button className="more-info-button" onClick={setFocus}>More Info</button>
             </NavLink>
           </div>
         </div>
@@ -48,11 +41,10 @@ Nav.propTypes = {
   title: PropTypes.string,
   average_rating: PropTypes.number,
   release_date: PropTypes.string,
-  genres: PropTypes.array,
   tagline: PropTypes.string,
+  genres: PropTypes.array,
   backdrop_path: PropTypes.string,
   preview: PropTypes.any,
-  // getVideos: PropTypes.func,
   setFocus: PropTypes.func
 }
 

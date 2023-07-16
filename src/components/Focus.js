@@ -1,10 +1,10 @@
 import '../css/Focus.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { getSingleMovie, getVideos } from '../ApiCalls';
 import { useParams, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Focus = ({ focus, getData, setFocus, setVideos, setTrailer, setLoading, videos, trailer, error, reset }) => {
+const Focus = ({ getData, focus, setFocus, setLoading, videos, setVideos, trailer, setTrailer, error, reset }) => {
   let id = useParams().id;
 
   useEffect(() => {
@@ -16,6 +16,10 @@ const Focus = ({ focus, getData, setFocus, setVideos, setTrailer, setLoading, vi
   if (videos.length) {
     let movieTrailer = videos.find(video => video.type === 'Trailer');
     setTrailer(`https://www.youtube.com/embed/${movieTrailer.key}`);
+  } else if (id === '820067') {
+    setTrailer('https://www.youtube.com/embed/maS5nHFa1o8');
+  } else if (id === '566466') {
+    setTrailer('https://www.youtube.com/embed/Lesx_Rda5V0');
   }
   
   let styles = {
@@ -57,14 +61,14 @@ const Focus = ({ focus, getData, setFocus, setVideos, setTrailer, setLoading, vi
 export default Focus;
 
 Focus.propTypes = {
-  focus: PropTypes.any.isRequired,
   getData: PropTypes.func.isRequired,
+  focus: PropTypes.any.isRequired,
   setFocus: PropTypes.func.isRequired,
-  setVideos: PropTypes.func.isRequired,
-  setTrailer: PropTypes.func.isRequired,
   setLoading: PropTypes.func.isRequired,
   videos: PropTypes.array.isRequired,
+  setVideos: PropTypes.func.isRequired,
   trailer: PropTypes.string.isRequired,
+  setTrailer: PropTypes.func.isRequired,
   error: PropTypes.any.isRequired,
   reset: PropTypes.func.isRequired
 }
