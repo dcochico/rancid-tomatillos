@@ -52,7 +52,7 @@ const App = () => {
     setVideos([]);
     setTrailer('');
   }
-
+  console.log('this', error)
   const movieCards = movies.map(movie => {
     return (
       <Card 
