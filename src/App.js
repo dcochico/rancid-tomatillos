@@ -10,7 +10,6 @@ import './css/App.css';
 import './css/Card.css';
 import './images/load-gif.gif';
 
-
 const App = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -26,7 +25,7 @@ const App = () => {
     request(id)
       .then(res => {
         if(!res.ok) {
-          throw Error('Unable to fetch data at this time. Please try again later.');
+          throw Error('Unexpected error. Please refresh the page.');
         }
         return res.json();
       })
@@ -52,7 +51,7 @@ const App = () => {
     setVideos([]);
     setTrailer('');
   }
-  console.log('this', error)
+
   const movieCards = movies.map(movie => {
     return (
       <Card 
@@ -106,7 +105,6 @@ const App = () => {
           />
           {!error && <div className='movies-container'>{!search ? movieCards : searchResults}</div>}
           {loading && <img className='loading' src={require('./images/load-gif.gif')}/>}
-          {/* <img className='loading' src={require('./images/load-gif.gif')}/> */}
         </div>}
       />
       <Route path="/movies/:id" element=

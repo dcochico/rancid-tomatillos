@@ -18,5 +18,73 @@ body, html {
   z-index: 10;
   position: fixed;
   top: 50%;
-  left: 23%;
+  left: 38%;
+  text-align: center;
+}
+
+@media screen and (max-width: 1730px) {
+  .error-message {
+    left: 36%;
+  }
+}
+
+@media screen and (max-width: 1532px) {
+  .error-message {
+    left: 34%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .error-message {
+    left: 33%;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .error-message {
+    left: 31%;
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .error-message {
+    left: 29%;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .error-message {
+    left: 26%;
+  }
+}
+
+@media screen and (max-width: 895px) {
+  .error-message {
+    left: 22%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .error-message {
+    left: 18%;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .error-message {
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .error-message {
+    left: 15%;
+    font-size: 5vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .error-message {
+    left: 13%;
+  }
 }
