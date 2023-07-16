@@ -1,16 +1,18 @@
 body, html {
   background-color: rgb(50, 50, 50);
+  scroll-snap-type: y proximity;
 }
 
 .card-container {
   display: grid;
-  margin: 11% 0% -10% 7%;
+  margin: 11% 0% -15% 7%;
 }
 
 .card-poster-path {
   height: 100%;
   width: 100%;
   border-radius: 15px;
+  scroll-snap-align: start;
 }
 
 .card-poster-path:hover {

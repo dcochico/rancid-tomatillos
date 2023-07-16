@@ -56,7 +56,6 @@ const App = () => {
   const movieCards = movies.map(movie => {
     return (
       <Card 
-        className="movie-card"
         key = {movie.id}
         id = {movie.id}
         poster_path = {movie.poster_path}
@@ -71,7 +70,6 @@ const App = () => {
   const searchResults = movies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase() || search)).map(movie => {
     return (
       <Card 
-        className="movie-card"
         key = {movie.id}
         id = {movie.id}
         poster_path = {movie.poster_path}
